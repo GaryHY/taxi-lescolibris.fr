@@ -5,10 +5,7 @@ const max_index = Math.ceil(image_count / col_count);
 
 const progressBar = document.querySelector(".progress_bar");
 
-// TODO: je n'ai pas de carousel circulaire.
-// Le carousel ne s'affiche meme pas en fait.
-
-// On cree les divs pour la barre de progression:
+// // On cree les divs pour la barre de progression:
 function handleProgressBar(active_index){
     progressBar.innerHTML = "";
     for(let i=0; i<max_index; i++){

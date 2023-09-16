@@ -6,10 +6,6 @@ footer {
     padding: 4em;
 }
 
-/* .footer__top { */
-/*     padding: 3rem; */
-/* } */
-
 .footer__top > * + * {
     margin-top: 1.5rem;
 }

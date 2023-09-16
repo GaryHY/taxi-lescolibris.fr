@@ -2,7 +2,6 @@
 import "../styles/services.css";
 import CardService from "../components/CardService.astro";
 
-// TODO: Changer pour mettre toutes les images.
 const cardservices = [
     {
         title: "Transport aeroport",
@@ -30,7 +29,7 @@ const cardservices = [
     },
 ]
 ---
-<section class="service">
+<section class="service" id="services">
     <div class="outer_grid">
         <div class="services">
             {cardservices.map((cardservice, index) => (

@@ -1,5 +1,4 @@
 .card {
-    /* TODO: Gerer un petit mieux la valeur de ce truc. */
     --icon-width: 1em;
     background-color: white;
     border-radius: 2rem;
