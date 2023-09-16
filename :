@@ -1,0 +1,105 @@
+.hero__section {
+    margin-top: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__section::after {
+    content: '';
+    position: absolute;
+    background-color: #FDE6A3;
+    top: 90%;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    transform: skewY(-14deg);
+}
+
+.hero__section__content {
+    display: flex;
+    align-items:center;
+    flex-direction: column;
+    margin-inline: auto;
+    font-size: 1.5rem;
+}
+
+@media(max-width: 20em){
+    .hero__section__content {
+        font-size: 0.5rem;
+        background-color: red;
+    }
+}
+
+
+/* TODO: gerer la valeur du media query. */
+@media(min-width: 900px){
+    .hero__section__content {
+        flex-direction: row;
+        gap: 3rem;
+    }
+}
+
+.hero__title {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 900;
+    font-size: 4.5rem;
+    line-height: 1;
+}
+
+.hero__body {
+    color: black;
+    font-weight: 600;
+    margin-top: 3rem;
+}
+
+.hero__button {
+    border: none;
+    color:white;
+    background-color: #FF785A; 
+    padding: 1.2rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+.hero__button:is(:hover, :focus){
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.hero__image {
+    width: 60%;
+    /* TODO: Make the aspect-ratio thing work */
+    /* aspect-ratio: 10 / 3; */
+}
+
+.gwada {
+    position: relative;
+}
+
+.gwada::after ,
+.gwada::before {
+    content: '';
+    background-repeat:no-repeat;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.gwada::after {
+    background-image: url("../images/hero/gribouilli.svg");
+    /* TODO: Changer cela pour ne pas avoir de valeurs absolus mais des chosese relatives a la taille du font. */
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.gwada::before {
+    background-image: url("../images/hero/palmtree.svg");
+    top: -50px;
+    left: 80%;
+    z-index: -1;
+}
+
+
+

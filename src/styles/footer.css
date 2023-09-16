@@ -1,0 +1,36 @@
+footer {
+    color: white;
+    background-color: #111;
+    text-align:center;
+    width: 100vw;
+    padding: 4em;
+}
+
+/* .footer__top { */
+/*     padding: 3rem; */
+/* } */
+
+.footer__top > * + * {
+    margin-top: 1.5rem;
+}
+
+.footer__content {
+    max-width: 70%;
+    margin-inline: auto;
+}
+
+.footer__nav {
+    display: flex;
+    justify-content:center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.footer__nav li:is(:hover, :focus){
+    text-decoration: underline  rgb(44, 165, 176);
+}
+
+.copyright {
+    padding-block: 1rem;
+    text-transform: capitalize;
+}

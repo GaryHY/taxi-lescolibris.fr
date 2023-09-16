@@ -1,0 +1,94 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+   <slot /> 
+</body>
+</html>
+
+<style is:global>
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+    }
+
+    body {
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      background-color: #82d8d8; 
+      font-family: 'Poppins', sans-serif;
+    }
+
+    img, picture, video, canvas, svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    ul[role="list"]{
+        list-style-type: none;
+    }
+
+    input, button, textarea, select {
+      font: inherit;
+    }
+
+    p, h1, h2, h3, h4, h5, h6 {
+      overflow-wrap: break-word;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+#root, #__next {
+      isolation: isolate;
+    }
+
+    /* NOTE: Dans le cours sur le responsive il ne met que width, max-width et un margin inline de auto. */
+    /* Le padding verticala est gere ailleurs */
+    .container {
+        /* Je mets ce truc ? */
+        width: 80%;
+        max-width: 1500px;
+        margin-inline: auto;
+        /* Je retire ce truc ? */
+        padding-inline: 3rem;
+    }
+
+    /* TODO: Je dois faire un truc comme cela pour le spacing vertical. */
+    /* section { */
+    /*     padding-block: 3rem; */
+    /* } */
+
+    /* TODO: Creer ces styles */
+
+    /* NOTE: Je peux surement penser a utiliser vh, vw, vmin et vmax pour cela */
+    /* .heading{} */
+    .subheading{
+        text-transform: capitalize;
+        font-size: 2rem;
+    }
+    /* NOTE: Peut etre utilse surtout si j'ai bon les media queries.' */
+    /* .grid_2_columns {} */
+
+    /* TODO: Creer ces variables surtout pour gerer les media queries depuis le root.  */ 
+</style>

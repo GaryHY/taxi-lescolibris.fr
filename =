@@ -1,0 +1,38 @@
+---
+import "../styles/nav.css"
+
+import {Image} from 'astro:assets';
+import logo from "../images/hero/logo.jpg";
+---
+
+<script src="../scripts/nav.js"></script>
+
+<!-- <nav class=""> -->
+<nav class="nav" id="nav">
+    <div class="container nav__content">
+        <Image src={logo} alt="logo"/>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+        </button>
+        <ul data-visible="false" role="list" class="links" id="primary-navigation">
+            <!-- <li aria-current="page"><a href="#nav">Accueil</a></li> -->
+            <li class="link">
+                <a href="#qualities">Qualites</a>
+            </li>
+            <li class="link">
+                <a href="#about">A propos</a>
+            </li>
+            <li class="link">
+                <a href="#vehicule">Vehicule</a>
+            </li>
+            <li class="link">
+                <a href="#services">Services</a>
+            </li>
+            <li class="">
+                <button class="cta">
+                    <a href="#contact">Contact</a>
+                </button>
+            </li>
+        </ul>
+    </div>
+</nav>

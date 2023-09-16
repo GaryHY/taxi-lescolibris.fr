@@ -1,0 +1,23 @@
+.cardservice {
+    background-color: #2f2f2f;
+    color: white;
+    text-align: center;
+    padding: 1.5em;
+    display: grid;
+    grid-template-rows: 30% 10% 40%;
+    gap: 2em;
+}
+
+.cardservice__accent {
+    background-color: #343434;
+}
+
+.cardservice__image {
+    margin-inline: auto;
+    width: 5em;
+}
+
+.cardservice__body {
+    font-weight: 300;
+}
+

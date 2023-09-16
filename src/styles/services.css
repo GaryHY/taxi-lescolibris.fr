@@ -1,0 +1,39 @@
+.service {
+    padding-block: 0;
+    background-color: white;
+}
+
+.service__description {
+    padding: 4em 3em;
+}
+
+.outer_grid {
+    /* Ici je mets la taille de la partie service qui determine de toutes les autres parties. */
+    --service-width: 44%;
+    display: grid;
+}
+
+.services {
+    display: grid;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: repeat(2,1fr);
+}
+
+.service__title{
+    margin-inline: center;
+}
+
+.service__body {
+    padding-top: 3em;
+    padding-bottom: 1em;
+}
+
+p {
+    margin-top : 1em;
+}
+
+@media(min-width: 600px){
+    .outer_grid{
+        grid-template-columns: calc(100% - var(--service-width)) var(--service-width);
+    }
+}

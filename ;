@@ -1,0 +1,36 @@
+---
+import "../styles/contact.css";
+
+import telephone from "../images/contact/phone.svg";
+---
+
+<section class="contact">
+    <div class="container">
+        <h2 class="contact__title heading">Contact</h2>
+        <div class="contact__content">
+            <div class="telephone">
+                <h3 class="telephone__title subheading">Par telephone</h3>
+                <img class="contact__image" src={telephone.src} alt="telephone icon">
+                <p class="telephone__number">0690 12 34 56</p>
+            </div>
+            <div class="mail">
+                <h3 class="mail__title subheading">Par email</h3>
+            </div>
+<form>
+  <label>
+    Username:
+    <input type="text" name="username" />
+  </label>
+  <label>
+    Email:
+    <input type="email" name="email" />
+  </label>
+  <label>
+    Password:
+    <input type="password" name="password" />
+  </label>
+  <button>Submit</button>
+</form>            
+        </div>
+    </div>
+</section>

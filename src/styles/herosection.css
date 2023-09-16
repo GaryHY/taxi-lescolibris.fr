@@ -1,0 +1,104 @@
+/* ici je vais refaire tout le css sauf que je vais etre mobile first parce que c'est plus simple.  */
+
+:root {
+    /* TODO: mettre cette valeur en clamp ? */
+    /* --space-y: clamp(0.5em,); */
+    --space-y: 0.5em;
+}
+
+/* Juste pour les petits ecrans. */
+.hero__section {
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__section::after {
+    content: '';
+    position: absolute;
+    background-color: #FDE6A3;
+    width: 100%;
+    height: 100%;
+    top: 80%;
+    left: 0;
+    z-index: -2;
+    transform: skewY(-14deg);
+}
+
+.hero__title {
+    color: white;
+    font-weight: 900;
+    /* font-size: 1.5rem; */
+    font-size: clamp(1.6125rem, 4vw, 4.5rem);
+}
+
+.hero__body {
+    margin-top: calc(var(--space-y) * 4);
+    font-weight: 600;
+}
+
+.hero__button {
+    margin-top: calc(var(--space-y) * 2);
+    color: white;
+    background-color: var(--clr-button);
+    font-weight: 800;
+    /* TODO: changer les valeurs parce que c'est nptk */
+    padding: 0.75em 2.25em;
+    border: none;
+    border-radius: 1rem;
+}
+
+/* TODO: Fix that thing, the color is not good. */
+.hero__button:is(:hover, :focus){
+    background-color: var(--clr-button-hover);
+}
+
+.hero__image {
+    margin-top: calc(var(--space-y) * 4);
+    margin-inline: auto;
+}
+
+.gwada {
+    position: relative;
+}
+
+.gwada::after ,
+.gwada::before {
+    content: '';
+    background-repeat:no-repeat;
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+}
+
+.gwada::after {
+    background-image: url("../images/hero/gribouilli.svg");
+    bottom: -1em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* TODO: pas responsive il disparait plus bas. */
+.gwada::before {
+    background-image: url("../images/hero/palmtree.svg");
+    top: -0.72em;
+    left: 85%;
+    z-index: -1;
+}
+
+@media(min-width:41em) {
+
+    .hero__section {
+        text-align: left;
+    }
+
+    .hero__section__content {
+        display: flex;
+        align-items:center;
+        gap: 1em;
+    }
+
+    .hero__section__content > * {
+        width: 100%;
+    }
+}

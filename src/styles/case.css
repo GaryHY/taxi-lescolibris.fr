@@ -1,0 +1,36 @@
+.case {
+    background-color: white;
+    text-align: center;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+.case__title {
+    background-color: #1e1e1e;
+    color: white;
+    padding-block: 0.5rem;
+    font-size: 1.5em;
+}
+
+.case__body {
+    margin-top: 1em;
+    padding: 1.5em;
+}
+
+@media(min-width: 50em){
+    .case {
+        border-radius: 5em;
+        padding: 1.5em;
+    }
+
+    .case__title {
+        padding: 0.5em 0.75em;
+        display: inline-block;
+        border-radius: 3rem;
+    }
+
+    .case__body {
+        padding: 0;
+    }
+}
+

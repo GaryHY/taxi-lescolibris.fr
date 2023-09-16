@@ -1,0 +1,18 @@
+--- 
+// import "../styles/hero.css";
+import "../styles/herosection.css";
+import heroimage from "../images/hero/heroimage.png";
+---
+
+<section class="hero__section">
+    <div class="hero__section__content container">
+        <div class="hero__text">
+            <h1 class="hero__title">Voyager ou vous<br> voulez en <span class="gwada">Guadeloupe</span></h1>
+            <p class="hero__body">Explorer l’ile avec votre chauffeur taxi dedie.
+Des trajets uniques pour une experience memorable.</p>
+            <button class="hero__button"><a href="#contact">Contacter moi</a></button>
+        </div>
+        <!-- TODO: Je ne vais pas utiliser assets Image de Astro ?  -->
+        <img class="hero__image" src={heroimage.src} alt="hero banner 2">
+    </div>
+</section>

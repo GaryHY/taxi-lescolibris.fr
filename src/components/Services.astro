@@ -1,0 +1,51 @@
+---
+import "../styles/services.css";
+import CardService from "../components/CardService.astro";
+
+// TODO: Changer pour mettre toutes les images.
+const cardservices = [
+    {
+        title: "Transport aeroport",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. ",
+    },
+    {
+        title: "Transport maritime",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. ",
+    },
+    {
+        title: "Transfert organe et de sang",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. ",
+    },
+    {
+        title: "Taxi conventionne",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. ",
+    },
+    {
+        title: "Course dans toute la Guadeloupe",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. ",
+    },
+    {
+        title: "Guide touristique",
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. ",
+    },
+]
+---
+<section class="service">
+    <div class="outer_grid">
+        <div class="services">
+            {cardservices.map((cardservice, index) => (
+                <CardService img={cardservice.img} title={cardservice.title}, content={cardservice.content}, index={index} />
+            ))}
+        </div>
+        <div class="service__description">
+            <h2 class="service__title heading" data-color="black">service</h2>
+            <div class="service__body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p>
+            </div>
+        </div>
+    </div>
+</section>

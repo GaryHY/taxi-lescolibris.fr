@@ -1,0 +1,200 @@
+/* general */
+.vehicle {
+    /* TODO: Creer une variable pour cette couleur. */
+    background-color: #d9d9d9;
+    position: relative;
+}
+
+.vehicle::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* top carousel */
+.carousel {
+    margin-top: 4em;
+    --slider-padding: 5rem;
+    --col-count: 1; 
+}
+
+.carousel__container {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    overflow: hidden;
+
+    /* NOTE: On teste des trucs */
+    position: relative;
+    margin-inline:auto;
+    width: 70%;
+}
+
+.slider {
+    --slider-index: 0;
+    --gap: 5em;
+    display:grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc(100% / var(--col-count));
+    /* NOTE: version sans le gap. */
+    transform: translateX(calc(var(--slider-index) * -100%));
+
+    /* NOTE: version avec le gap. Pense a enlever le overflow hidden du carousel__container */
+    /* gap: calc(var(--gap) / 2); */
+    /* transform: translateX(calc(var(--slider-index) * -100% - var(--gap))); */
+    transition: transform 250ms ease-in-out;
+}
+
+/* TODO: Reduire la taille des images car ici c'est beaucoup trop gros en fait. */
+
+.handle {
+    border:none;
+    background: none;
+    z-index: 1000;
+    fill: white;
+    width: 4em;
+}
+
+.right_handle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) rotateZ(180deg);
+    right: 1em;
+}
+
+.left_handle {
+    left: 1em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.handle:is(:hover, :focus){
+    cursor:pointer;
+}
+
+
+.progress_bar {
+    margin-top: 3em; display:flex;
+    gap: 2em;
+    justify-content: center;
+}
+
+.progress_bar_item {
+    border-radius: 100%;
+    width: 2em;
+    aspect-ratio: 1;
+    /* NOTE: Ce truc etait commente au debut. */
+    /* background-color: rgba(255,255,255, 0.2); */
+    background-color: white;
+}
+
+.progress_bar .active {
+    background-color: rgba(255,255,255, 0.9);
+    background-color: var(--clr-button);
+}
+
+/* ------------------------------------------------------ */
+
+/* bottom  */
+
+.vehicle__description {
+    display: grid;
+    grid-auto-flow: row;
+    margin-top: 4em;
+    max-width: 320px;
+    margin-inline: auto;
+    gap: 3em;
+}
+
+/* TODO: Faire le media query pour que le grid des cases puisse sauter en dessous de 800px; */
+
+@media(min-width: 50em){
+    /* top carousel */
+
+    /* bottom */
+    .vehicle__description {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 0;
+        /* grid-gap: 1em 1em; */
+        max-width: none;
+        width: 100%;
+        margin-top: 4em;
+    }
+
+    div[data-position] {
+        position: relative;
+    }
+
+    div[data-position]::before,
+    div[data-position]::after {
+        position: absolute;
+    }
+
+    [data-position="top"]{
+        grid-column: 5/9;
+        grid-row: 1;
+    }
+
+    [data-position="top"]::after {
+        content: '';
+        background-image: url("../images/vehicle/arrow1.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: -4em;
+        top: 80%;
+        width: 4em;
+        height: 100%;
+    }
+
+    [data-position="right"]{
+        grid-column: 9/-1;
+        grid-row: 2;
+    }
+
+    [data-position="right"]::after {
+        content: '';
+        background-image: url("../images/vehicle/arrow2.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: -0.8em;
+        top: 90%;
+        width: 4em;
+        height: 100%;
+    }
+
+    [data-position="bottom"]{
+        grid-column: 5/9;
+        grid-row: 3;
+    }
+
+    [data-position="bottom"]::before {
+        content: '';
+        background-image: url("../images/vehicle/arrow3.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        left: -4em;
+        top: -0.1em;
+        width: 4em;
+        height: 100%;
+    }
+
+    [data-position="left"]{
+        grid-column: 1 / 5;
+        grid-row: 2;
+    }
+
+    [data-position="left"]::before {
+        content: '';
+        background-image: url("../images/vehicle/arrow4.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        right: -1em;
+        top: -3em;
+        width: 4em;
+        height: 100%;
+    }
+}

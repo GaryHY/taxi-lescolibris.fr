@@ -1,0 +1,77 @@
+---
+import "../styles/vehicle.css";
+import Case from "../components/Case.astro";
+
+import {Image} from 'astro:assets';
+import car1 from "../images/vehicle/car1.png";
+import car2 from "../images/vehicle/car2.png"; 
+import car3 from "../images/vehicle/car3.png";
+import car4 from "../images/vehicle/car4.png";
+import car5 from "../images/vehicle/car5.png";
+import car6 from "../images/vehicle/car6.png";
+// NOTE: On a besoin que d'un seul arrowe en realite.
+import left_arrow from "../images/vehicle/left_arrow_carousel.svg";
+
+const cases = [
+    {
+        title: "Securite",
+        content: "Une solution fiable pour vos trajets grace a des ceintures innovantes, un systeme de controle de pression des pneus et un freinage performant.",
+    },
+    {
+        title: "Confort",
+        // TODO: changer la redaction de ce content.
+        content: "Grâce à des ceintures avant innovantes, un système de contrôle de pression des pneus et un freinage performant.",
+    },
+    {
+        title: "Ergonomie",
+        content: "Une abondante luminosité grâce à une vaste surface vitrée. Un pare-brise incliné et des fenêtres arrière permettent profiter au maximum de la vue.",
+    },
+    {
+        title: "Modularite",
+        content: "Une transition aisée de 9 places à 5 places ainsi qu’un espace de rangement repondant a n’importe lequel de vos besoins.  ",
+    },
+];
+---
+
+<script src="../scripts/carousel.js"></script>
+
+<section class="vehicle">
+    <div class="container">
+        <h2 class="vehicle__title heading">le vehicule</h2>
+        <div class="carousel">
+            <div class="carousel__container">
+                <button class="handle left_handle">
+                    <Image src={left_arrow} alt="left-arrow" />
+                </button>
+                <div class="slider">
+                    <img class="photo" src={car1.src} alt="front view">
+                    <img class="photo" src={car2.src} alt="rear view" />
+                    <img class="photo" src={car3.src} alt="side view" />
+                    <img class="photo" src={car4.src} alt="wheel view" />
+                    <img class="photo" src={car5.src} alt="inside view" />
+                    <img class="photo" src={car6.src} alt="front view" />
+                </div>
+                <button class="handle right_handle">
+                    <Image src={left_arrow} alt="left-arrow" />
+                </button>
+            </div>
+            <div class="progress_bar"></div>
+        </div>
+        <div class="vehicle__description">
+            <!-- TODO: utliiser la fonction map pour pouvoir faire tout cela. -->
+            <div data-position="top">
+                <Case title="Securite" content="Une solution fiable pour vos trajets grace a des ceintures innovantes, un systeme de controle de pression des pneus et un freinage performant." />
+            </div>
+            <div data-position="right">
+                <Case title="Confort" content="Grâce à des ceintures avant innovantes, un système de contrôle de pression des pneus et un freinage performant." />
+            </div>
+            <div data-position="bottom">
+                <Case title="Ergonomie" content="Une abondante luminosité grâce à une vaste surface vitrée. Un pare-brise incliné et des fenêtres arrière permettent profiter au maximum de la vue." />
+            </div>
+            <div data-position="left">
+                <Case title="Modularite" content="Une transition aisée de 9 places à 5 places ainsi qu’un espace de rangement repondant a n’importe lequel de vos besoins." />
+            </div>
+        </div>
+    </div>
+</section>
+

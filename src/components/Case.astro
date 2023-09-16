@@ -1,0 +1,13 @@
+---
+import "../styles/case.css";
+
+export interface Props {
+  title: string;
+  content: string;
+}
+const {title, content} = Astro.props as Props;
+---
+<div class="case">
+    <h3 class="case__title subheading">{title}</h3>
+    <p class="case__body">{content}</p>
+</div>

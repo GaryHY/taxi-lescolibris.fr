@@ -1,0 +1,48 @@
+.card {
+    /* TODO: Gerer un petit mieux la valeur de ce truc. */
+    --icon-width: 1em;
+    background-color: white;
+    border-radius: 2rem;
+    border: 8px solid var(--clr-button);
+    padding-top: calc(1.5em + var(--icon-width));
+    position: relative;
+    text-align: center;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    padding: 2em;
+    background-image: url("../images/quality/pro.svg");
+    background-repeat: no-repeat;
+    background-size: 2em;
+    background-position: 60%;
+    background-color: var(--clr-button);
+    border-radius: 100vw;
+    top: -1.5em;;
+}
+
+.card__title {
+    margin-top: 2em;
+    position: relative;
+    display:inline-block;
+}
+
+.card__title::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/quality/underline.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -1.2em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.card__body {
+    margin-top: 2em;
+    padding: 1em;
+}
+

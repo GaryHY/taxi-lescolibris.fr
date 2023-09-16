@@ -1,0 +1,116 @@
+/* TODO: Ajouter les blobs en arriere plan. */
+.about__card {
+    margin-top: 4rem;
+    background-color: white;
+    border: 10px solid black;
+    width: 100%;
+    aspect-ratio: 6 /3;
+    display: flex;
+    position: relative;
+}
+
+.about__card::before {
+    content: '';
+    position: absolute;
+    top: 1em;
+    left: 1em;
+    width: 2em;
+    height: 100%;
+    background-image: url("../images/about/palm.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.about__card::after {
+    content: '';
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    width: 4em;
+    height: 100%;
+    background-image: url("../images/about/profile.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.about__address,
+.about__content {
+    width: 100%;
+    padding: 3em;
+    display: grid;
+    place-content: center;
+}
+
+
+.about__content {
+    position: relative;
+}
+
+.about__content::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 75%;
+    top: 50%;
+    right: 0;
+    background-color: black;
+    transform: translateY(-50%);
+}
+
+
+.about__address {
+    background-image: url("../images/about/Guadeloupe.jpg");
+    background-size: contain;
+    background-repeat:no-repeat;
+}
+
+.address__line {
+    padding-block: 0.5em;
+    border-width: 0;
+    border-style: solid;
+    border-color: black;
+    border-bottom-width : 4px;
+    font-weight: 600;
+}
+
+@media(max-width: 41em){
+    .about__card {
+        flex-direction: column;
+        aspect-ratio: 3 / 5;
+        max-width: 420px;
+        margin-inline: auto;
+        height: min-content;
+    }
+
+    .about__content{
+        max-width: 80%;
+        margin-top: 4em;
+        margin-inline: auto;
+    }
+
+    .about__content::after {
+        content: '';
+        position: absolute;
+        height: 5px;
+        width: 95%;
+        left: 50%;
+        top: 100%;
+        background-color: black;
+        transform: translateX(-50%);
+    }
+    
+    .about__address,
+    .about__content {
+        height: min-content;
+    }
+    .address__line {
+        padding-block: 1.5em;
+    }
+    
+}
+
+@media(max-width: 24em){
+    .about__content {
+        padding: 0.5em;
+    }
+}
