@@ -10,11 +10,6 @@ const email = document.getElementById("email");
 const prenom = document.getElementById("prenom");
 const message = document.getElementById("message");
 
-// TODO: Faire en sorte que les champs soit clear au lancement de la page.
-const clearInputs = () => {
-    console.log("On va clean les input en fait.")
-}
-
 const checkInput = (inputElement) => {
     const label = inputElement.parentElement;
     const labelline = label.querySelector(".labelline");
@@ -29,7 +24,6 @@ inputs.forEach((input) => {
     checkInput(input);
     // NOTE: Je peux appeler validate input, ici aussi !
     input.addEventListener("change", () => { 
-        console.log("you just changes the content of :", input);
         validateInputs();
         checkInput(input);
     })
@@ -93,7 +87,7 @@ const validateInputs= () => {
 
     if(emailValue === ""){
         isEmailValid = false;
-        setError("email requis");
+        setError(email, "Le mail entre ne correspond pas...");
     }
     else if(!isValidEmail(emailValue)){
         isEmailValid = false;
@@ -112,11 +106,10 @@ const resetInputs = () => {
     message.value = "";
 }
 
-// TODO: Rendre le button unclickable tant que l'input n'est pas valide
+
 form.addEventListener("submit", e => {
     e.preventDefault();
     if (validateInputs()){
-        console.log("On peut envoyer le mail");
         resetInputs();
         let formData = JSON.stringify({
             nom: nom.value,
@@ -125,7 +118,6 @@ form.addEventListener("submit", e => {
             message: message.value,
         });
 
-        // We send the data to the backend.
         // TODO: Find if the url used is the best url.
         const url = "/";
         fetch(url, {
