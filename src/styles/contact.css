@@ -19,7 +19,7 @@
 
 .telephone__title,
 .mail__title {
-    font-size: 2em;
+    font-size: clamp(1.5em, 5vw, 2em);
     position: relative;
     display: inline-block;
 }
