@@ -1,12 +1,23 @@
-/* TODO: Ajouter les blobs en arriere plan. */
+.about {
+    background-image: linear-gradient(3deg, #d9d9d9 12%, #FDE6A3 80%);
+    display: grid;
+    place-content: center;
+}
+
 .about__card {
     margin-top: 4rem;
     background-color: white;
-    border: 10px solid black;
+    border: 0.4em solid black;
     width: 100%;
     aspect-ratio: 6 /3;
-    display: flex;
     position: relative;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    /* display: flex; */
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: repeat(2,1fr);
+    max-width: 39em;
 }
 
 .about__card::before {
@@ -14,7 +25,7 @@
     position: absolute;
     top: 1em;
     left: 1em;
-    width: 2em;
+    width: clamp(0.1rem, 5vw, 4rem);
     height: 100%;
     background-image: url("../images/about/palm.svg");
     background-size: contain;
@@ -26,7 +37,7 @@
     position: absolute;
     top: 1em;
     right: 1em;
-    width: 4em;
+    width: clamp(1.5rem, 4vw, 8rem);
     height: 100%;
     background-image: url("../images/about/profile.jpg");
     background-size: contain;
@@ -36,81 +47,66 @@
 .about__address,
 .about__content {
     width: 100%;
-    padding: 3em;
     display: grid;
     place-content: center;
+    margin-inline: auto;
+    padding-block: 5em;
 }
 
 
 .about__content {
     position: relative;
+    font-size: clamp(0.5rem,1vw, 1.2rem);
+    padding-inline: 6em;
+    padding-inline: 2em;
 }
 
 .about__content::after {
     content: '';
     position: absolute;
-    width: 5px;
-    height: 75%;
-    top: 50%;
-    right: 0;
+    height: 5px;
+    width: 95%;
+    left: 50%;
+    top: 100%;
     background-color: black;
-    transform: translateY(-50%);
+    transform: translateX(-50%);
 }
-
 
 .about__address {
     background-image: url("../images/about/Guadeloupe.jpg");
-    background-size: contain;
+    background-size: 90%;
     background-repeat:no-repeat;
+    background-position: 90%;
+    padding: 5em 1em;
 }
 
 .address__line {
-    padding-block: 0.5em;
-    border-width: 0;
-    border-style: solid;
-    border-color: black;
-    border-bottom-width : 4px;
+    width: 100%;
+    padding: 0.5em 5.5vw;
+    border: none;
+    border-bottom: 4px solid black;
     font-weight: 600;
+    /* NOTE: Je ne suis pas trop sur de celui la. */
+    text-align: center;
 }
 
-@media(max-width: 41em){
+@media(min-width: 41em){
     .about__card {
-        flex-direction: column;
-        aspect-ratio: 3 / 5;
-        max-width: 420px;
-        margin-inline: auto;
-        height: min-content;
-    }
-
-    .about__content{
-        max-width: 80%;
-        margin-top: 4em;
-        margin-inline: auto;
+        grid-auto-flow: column;
+        grid-template-rows: none;
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 100%;
     }
 
     .about__content::after {
         content: '';
         position: absolute;
-        height: 5px;
-        width: 95%;
-        left: 50%;
-        top: 100%;
+        width: 5px;
+        height: 75%;
+        top: 50%;
+        left: 100%;
         background-color: black;
-        transform: translateX(-50%);
+        transform: translateY(-50%);
     }
-    
-    .about__address,
-    .about__content {
-        height: min-content;
-    }
-    .address__line {
-        padding-block: 1.5em;
-    }
-    
 }
 
-@media(max-width: 24em){
-    .about__content {
-        padding: 0.5em;
-    }
-}

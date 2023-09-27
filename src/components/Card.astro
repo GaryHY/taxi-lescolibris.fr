@@ -1,8 +1,15 @@
 ---
 import "../styles/card.css";
+export interface CardProps {
+    title: string,
+    body: string,
+    dataIcon: string,
+}
+
+const {title, body, dataIcon} = Astro.props as CardProps;
 ---
 
-<div class="card">
-    <h3 class="card__title subheading">Conduite professionnelle</h3>
-    <p class="card__body">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem laboriosam asperiores nesciunt animi veniam voluptatibus quasi temporibus eveniet molestias illo.</p>
+<div class="card" data-icon={dataIcon} aria-labelledby="cardheader">
+    <h3 class="card__title subheading" id="cardheader">{title}</h3>
+    <p class="card__body">{body}</p>
 </div>

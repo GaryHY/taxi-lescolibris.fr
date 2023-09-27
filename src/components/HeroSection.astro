@@ -1,16 +1,25 @@
 --- 
 import "../styles/herosection.css";
 import heroimage from "../images/hero/heroimage.png";
+import mail from "../images/hero/mail.svg";
 ---
 
-<section class="hero__section">
+<section class="hero__section" aria-labelledby="pageheader">
     <div class="hero__section__content container">
         <div class="hero__text">
-            <h1 class="hero__title">Voyager ou vous<br> voulez en <span class="gwada">Guadeloupe</span></h1>
-            <p class="hero__body">Explorer l’ile avec votre chauffeur taxi dedie.
-Des trajets uniques pour une experience memorable.</p>
-            <button class="hero__button"><a href="#contact">Contacter moi</a></button>
+            <div class="help_flex">
+                <h1 class="hero__title" role="heading" id="pageheader">Retrouver Votre <span class="taxi">taxi</span> de confiance en <span class="gwada">Guadeloupe</span></h1>
+                <p class="hero__body">La societe de taxi "Transport Les Colibris" vous propose un chauffeur dedie pour des trajets uniques et une experience memorable.</p>
+            </div>
+            <div class="help_flex button__container">
+                <button class="hero__button">
+                    <a href="#contact">
+                        <img class="button__image" src={mail.src} alt="contact icon">
+                        <span class="button__content">Contacter moi</span>
+                    </a>
+                </button>
+            </div>
         </div>
-        <img class="hero__image" src={heroimage.src} alt="hero banner 2">
+        <img class="hero__image" src={heroimage.src} alt="hero banner image">
     </div>
 </section>

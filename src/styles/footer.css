@@ -4,6 +4,27 @@ footer {
     text-align:center;
     width: 100vw;
     padding: 4em;
+    position: relative;
+}
+
+footer::before,
+footer::after {
+    --triangle-size: 40px;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    aspect-ratio: 1;
+    border-bottom: var(--triangle-size) solid white;
+}
+
+footer::before {
+    left: 0;
+    border-right: var(--triangle-size) solid transparent;
+}
+
+footer::after {
+    right: 0;
+    border-left: var(--triangle-size) solid transparent;
 }
 
 .footer__top > * + * {
@@ -22,8 +43,12 @@ footer {
     align-items: center;
 }
 
+.footer__nav li {
+    border: 2px solid #111;
+}
+
 .footer__nav li:is(:hover, :focus){
-    text-decoration: underline  rgb(44, 165, 176);
+    border-bottom: 2px solid  rgb(44, 165, 176);
 }
 
 .copyright {

@@ -5,7 +5,8 @@
 .contact__content {
     --border-radius: 2em;
     margin-top: 5em;
-    background-color: #030303;
+    /* background-color: #030303; */
+    background-color: #111;
     color: white;
     border-radius: var(--border-radius);
 }
@@ -13,6 +14,7 @@
 .telephone,
 .mail {
     padding: 4em 4em;
+    text-align:center;
 }
 
 .telephone__title,
@@ -50,6 +52,11 @@
     border-radius: var(--border-radius);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    display: flex;
+    gap: 2em;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
 }
 
 @media(min-width: 41em){
@@ -63,20 +70,16 @@
     }
 }
 
-.telephone > *:not(h3) {
-    margin-top: 3rem;
-}
-
 .contact__image {
     background-color: #474747;
     border-radius: 100vw;
     margin-inline: auto;
-    width: 16em;
+    width: clamp(10em, 30vw, 20em);
 }
 
 .telephone__number {
     text-align:center;
-    font-size: clamp(2em, 8vw, 2.5em);
+    font-size: clamp(1em, 6vw, 2.5em);
     font-weight: 700;
     margin: 0;
     padding: 0;
@@ -88,7 +91,7 @@ form {
     display: grid;
     grid-template-rows: repeat(6,1fr);
     grid-template-columns: repeat(2,1fr);
-    grid-gap: 1em 0.5em;
+    grid-gap: 2.5em 0.5em;
 }
 
 input, textarea {
@@ -98,11 +101,12 @@ input, textarea {
     padding: 0.2em 0.5em;
     background-color: #2f2f2f;
     color: white;
-    border:none;
+    /* border: 2px solid #030303; */
+    border: 2px solid #111;
 }
 
-input:hover,
-textarea:hover {
+input:hover:not(:focus),
+textarea:hover:not(:focus) {
     border: 2px solid white;
 }
 
@@ -121,4 +125,71 @@ textarea:hover {
     grid-row: 6;
     font-size: 1.5em;
     border-radius: 0.5em;
+}
+
+label {
+    position: relative;
+}
+
+/* TODO: Faire en sorte avec le javascript que le truc ne soit pas fiel si le field est non vide. */
+.labelline {
+    text-transform:capitalize;
+    position: absolute;
+    left: 0.5em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.error {
+    position:absolute;
+    left: 0.5em;
+    top: 4em;
+    color: #ff3860;
+    font-size: 0.8em;
+}
+
+textarea ~ .error {
+    top: 18em;
+}
+
+label.fail input,
+label.fail textarea { 
+    border-color: #ff3860;
+}
+
+label.success input, 
+label.success textarea { 
+    border-color: #09c372;
+}
+
+input[name] {
+    padding: 1em 0.5em;
+    padding-bottom: 0.4em;
+}
+
+input[name]:focus ~ .labelline,
+.labelline[data-focus="true"] {
+    font-size: 0.8em;
+    color: var(--clr-button);
+    top: 0.8em;
+    transition: font-size 100ms ease-in, top 100ms ease-in;
+}
+
+/* textarea */
+textarea ~ .labelline {
+    text-transform:capitalize;
+    position: absolute;
+    left: 0.5em;
+    top: 1em;
+}
+
+textarea {
+    padding: 1em 0.5em;
+    padding-bottom: 0.4em;
+}
+
+textarea:focus ~ .labelline {
+    font-size: 0.8em;
+    color: var(--clr-button);
+    top: 0.8em; transition: font-size 100ms ease-in, top 100ms ease-in;
 }

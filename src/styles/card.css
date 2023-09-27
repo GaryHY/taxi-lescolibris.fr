@@ -4,21 +4,36 @@
     border-radius: 2rem;
     border: 8px solid var(--clr-button);
     padding-top: calc(1.5em + var(--icon-width));
+    padding-bottom: 1em;
     position: relative;
     text-align: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .card::before {
     content: '';
     position: absolute;
     padding: 2em;
-    background-image: url("../images/quality/pro.svg");
     background-repeat: no-repeat;
     background-size: 2em;
     background-position: 60%;
     background-color: var(--clr-button);
     border-radius: 100vw;
     top: -1.5em;;
+}
+
+[data-icon="pro"]::before{
+    background-image: url("../images/quality/pro.svg");
+}
+
+[data-icon="comfy"]::before{
+    background-image: url("../images/quality/comfy.svg");
+    background-position: 52%;
+}
+
+[data-icon="precise"]::before{
+    background-image: url("../images/quality/precise.svg");
+    background-position: 50% 30%;
 }
 
 .card__title {
@@ -44,4 +59,3 @@
     margin-top: 2em;
     padding: 1em;
 }
-

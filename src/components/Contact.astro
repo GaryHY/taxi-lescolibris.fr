@@ -1,34 +1,44 @@
 ---
 import "../styles/contact.css";
-
 import telephone from "../images/contact/phone.svg";
 ---
 
-<section class="contact" id="contact">
+<script src="../scripts/form.js"></script>
+
+<section class="contact" id="contact" aria-labelledby="contactheader">
     <div class="container">
-        <h2 class="contact__title heading" data-color="black">Contact</h2>
+        <h2 class="contact__title heading" data-color="black" id="contactheader">Contact</h2>
         <div class="contact__content">
-            <div class="telephone">
-                <h3 class="telephone__title subheading">Par telephone</h3>
+            <div class="telephone" aria-labelledby="phoneheader">
+                <h3 class="telephone__title subheading" id="phoneheader">Par telephone</h3>
                 <img class="contact__image" src={telephone.src} alt="telephone icon">
-                <p class="telephone__number">0690 12 34 56</p>
+                <p class="telephone__number">0690 35 53 09</p>
             </div>
-            <div class="mail">
-                <h3 class="mail__title subheading">Par email</h3>
-                <form class="form">
-                  <label>
-                    <input type="text" name="nom" />
+            <div class="mail" aria-labelledby="mailheader">
+                <h3 class="mail__title subheading" id="mailheader">Par email</h3>
+                <form class="form" id="form" action="https://formsubmit.co/gary.testmail.123@gmail.com" method="POST">
+                  <input type="hidden" name="_subject" value="Nouvel email de notre site internet favori." >
+                  <label class="nom">
+                    <input class="field" type="text" name="nom" id="nom" />
+                    <div class="labelline" data-focus="false">nom</div>
+                    <div class="error"></div>
                   </label>
-                  <label>
-                    <input type="text" name="prenom" />
+                  <label class="prenom">
+                    <input class="field" type="text" name="prenom" id="prenom" />
+                    <div class="labelline" data-focus="false">prenom</div>
+                    <div class="error"></div>
                   </label>
                   <label class="email">
-                    <input type="email" name="email" />
+                    <input class="field" type="email" name="email" id="email" />
+                    <div class="labelline" data-focus="false">mail</div>
+                    <div class="error"></div>
                   </label>
                   <label class="message">
-                    <textarea name="message" />
+                    <textarea class="field" name="message" id="message" />
+                    <div class="labelline" data-focus="false">message</div>
+                    <div class="error"></div>
                   </label>
-                  <button class="submit cta">Submit</button>
+                  <button class="submit cta" type="submit">Envoyer</button>
                 </form>            
             </div>
         </div>

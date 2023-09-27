@@ -4,7 +4,13 @@
 }
 
 .service__description {
-    padding: 4em 3em;
+    padding-block: 4em;
+    padding-left: 2em;
+    /* padding: 4em 3em; */
+    /* padding-right: 7em; */
+    padding-right: calc(100% - var(--content-width) + 3.5vw);
+    padding-right: calc((100% - var(--content-width)) / 0.9);
+    /* padding-right: var(--content-width); */
 }
 
 .outer_grid {
@@ -15,7 +21,9 @@
 
 .services {
     display: grid;
-    grid-template-rows: repeat(3,1fr);
+    /* NOTE: L'ancienne version avec les huit cards dont prise en charge handi */
+    /* grid-template-rows: repeat(3,1fr); */
+    grid-template-rows: repeat(2,1fr);
     grid-template-columns: repeat(2,1fr);
 }
 
@@ -29,7 +37,25 @@
 }
 
 p {
-    margin-top : 1em;
+    margin-top : 3em;
+}
+
+.tarif__heading {
+    position: relative;
+    text-decoration: underline 4px black;
+}
+
+.tarif_list {
+    margin-top: 1em;
+}
+
+.tarif_list > * {
+    list-style-type:disc;
+    margin-left: 2em;
+}
+
+.tarif_list_title {
+    font-weight: 600;
 }
 
 @media(min-width: 600px){

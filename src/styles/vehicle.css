@@ -2,15 +2,24 @@
 .vehicle {
     background-color: #d9d9d9;
     position: relative;
+    /* pour eviter le overflow horizontal du au pattern. */
+    overflow: hidden;
 }
 
-.vehicle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-}
+/* .vehicle::before { */
+/*     --triangle-lenght: 300px; */
+/*     content: ''; */
+/*     position: absolute; */
+/*     top: 0; */
+/*     right: 0; */
+/*     width: 0; */
+/*     height: 0; */
+/*     border-top: var(--triangle-lenght) solid white; */
+/*     border-left: var(--triangle-lenght) solid transparent; */
+/* } */
 
+
+/* TODO: Make the carousel accessible */
 /* top carousel */
 .carousel {
     margin-top: 4em;
@@ -18,14 +27,18 @@
     --col-count: 1; 
 }
 
+.carousel__position__handle {
+    position: relative;
+}
+
 .carousel__container {
-    display: flex;
-    align-items:center;
-    justify-content: center;
+    /* display: flex; */
+    /* align-items:center; */
+    /* justify-content: center; */
     overflow: hidden;
 
     /* NOTE: On teste des trucs */
-    position: relative;
+    /* position: relative; */
     margin-inline:auto;
     width: 70%;
 }
@@ -36,12 +49,7 @@
     display:grid;
     grid-auto-flow: column;
     grid-auto-columns: calc(100% / var(--col-count));
-    /* NOTE: version sans le gap. */
     transform: translateX(calc(var(--slider-index) * -100%));
-
-    /* NOTE: version avec le gap. Pense a enlever le overflow hidden du carousel__container */
-    /* gap: calc(var(--gap) / 2); */
-    /* transform: translateX(calc(var(--slider-index) * -100% - var(--gap))); */
     transition: transform 250ms ease-in-out;
 }
 
@@ -49,38 +57,41 @@
     border:none;
     background: none;
     z-index: 1000;
-    fill: white;
-    width: 4em;
+    /* width: 4em; */
+    /* width: 2em; */
+    /* width: 4vw; */
+    width: clamp(2em, 4vw, 4em);
+    top: 50%;
+    position: absolute;
 }
 
 .right_handle {
-    position: absolute;
-    top: 50%;
     transform: translateY(-50%) rotateZ(180deg);
-    right: 1em;
+    right: clamp(1em, 2vw, 3em);
 }
 
 .left_handle {
-    left: 1em;
-    position: absolute;
-    top: 50%;
+    left: clamp(1em, 2vw, 3em);
     transform: translateY(-50%);
 }
 
-.handle:is(:hover, :focus){
+.arrow:is(:hover, :focus) {
     cursor:pointer;
+    transition: transform 200ms ease-in;
+    transform: scale(1.2);
 }
 
 
 .progress_bar {
     margin-top: 3em; display:flex;
     gap: 2em;
+    gap: clamp(1em, 4vw, 2em);
     justify-content: center;
 }
 
 .progress_bar_item {
     border-radius: 100%;
-    width: 2em;
+    width: clamp(1.5em, 4vw, 2em);
     aspect-ratio: 1;
     background-color: white;
 }
@@ -190,4 +201,16 @@
         width: 4em;
         height: 100%;
     }
+
+    .vehicle::after {
+        content: '';
+        position: absolute;
+        top: 40%;
+        transform: translateX(-50%);
+        right: -5em;
+        width: 8em;
+        height: 16em;
+        background-image: url("../images/vehicle/pattern.svg");
+    }
+
 }

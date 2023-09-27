@@ -11,36 +11,40 @@ import car5 from "../images/vehicle/car5.png";
 import car6 from "../images/vehicle/car6.png";
 import left_arrow from "../images/vehicle/left_arrow_carousel.svg";
 
-const cases = [
+const elements = [
     {
         title: "Securite",
         content: "Une solution fiable pour vos trajets grace a des ceintures innovantes, un systeme de controle de pression des pneus et un freinage performant.",
+        position: "top",
     },
     {
         title: "Confort",
-        // TODO: changer la redaction de ce content.
-        content: "Grâce à des ceintures avant innovantes, un système de contrôle de pression des pneus et un freinage performant.",
+        content: "Un confort exceptionnel pour tous les passagers, grâce à ses sièges réglables, son habitacle spacieux et ses équipements de confort.",
+        position: "right",
     },
     {
         title: "Ergonomie",
         content: "Une abondante luminosité grâce à une vaste surface vitrée. Un pare-brise incliné et des fenêtres arrière permettent profiter au maximum de la vue.",
+        position: "bottom",
     },
     {
         title: "Modularite",
         content: "Une transition aisée de 9 places à 5 places ainsi qu’un espace de rangement repondant a n’importe lequel de vos besoins.  ",
+        position: "left",
     },
 ];
 ---
 
 <script src="../scripts/carousel.js"></script>
 
-<section class="vehicle" id="vehicule">
+<section class="vehicle" id="vehicule" aria-labelledby="vehicleheader">
     <div class="container">
-        <h2 class="vehicle__title heading">le vehicule</h2>
+        <h2 class="vehicle__title heading" id="vehicleheader">le vehicule</h2>
         <div class="carousel">
+                <div class="carousel__position__handle">
             <div class="carousel__container">
                 <button class="handle left_handle">
-                    <Image src={left_arrow} alt="left-arrow" />
+                    <Image class="arrow" src={left_arrow} alt="left-arrow" />
                 </button>
                 <div class="slider">
                     <img class="photo" src={car1.src} alt="front view">
@@ -51,25 +55,18 @@ const cases = [
                     <img class="photo" src={car6.src} alt="front view" />
                 </div>
                 <button class="handle right_handle">
-                    <Image src={left_arrow} alt="left-arrow" />
+                    <Image class="arrow" src={left_arrow} alt="left-arrow" />
                 </button>
             </div>
+                </div>
             <div class="progress_bar"></div>
         </div>
         <div class="vehicle__description">
-            <!-- TODO: utliiser la fonction map pour pouvoir faire tout cela. -->
-            <div data-position="top">
-                <Case title="Securite" content="Une solution fiable pour vos trajets grace a des ceintures innovantes, un systeme de controle de pression des pneus et un freinage performant." />
-            </div>
-            <div data-position="right">
-                <Case title="Confort" content="Grâce à des ceintures avant innovantes, un système de contrôle de pression des pneus et un freinage performant." />
-            </div>
-            <div data-position="bottom">
-                <Case title="Ergonomie" content="Une abondante luminosité grâce à une vaste surface vitrée. Un pare-brise incliné et des fenêtres arrière permettent profiter au maximum de la vue." />
-            </div>
-            <div data-position="left">
-                <Case title="Modularite" content="Une transition aisée de 9 places à 5 places ainsi qu’un espace de rangement repondant a n’importe lequel de vos besoins." />
-            </div>
+            {elements.map(element => (
+                <div data-position={element.position}>
+                    <Case title={element.title}, content={element.content} />
+                </div>
+            ))}
         </div>
     </div>
 </section>

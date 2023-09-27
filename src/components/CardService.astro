@@ -13,8 +13,9 @@ export interface CardService {
     index: number;
 }
 
-const images = [plane, boat,health, handi, car, map];
-// <img class="cardservice__image" src={boat.src} alt="transport maritime">
+// NOTE: L'ancienne configuration avec les huit cartes.
+// const images = [plane, boat,health, handi, car, map];
+const images = [plane, health, car, map];
 
 // Je ne comprends pas trop les nombres mais ok
 const numbers = new Set([1,2,5]);
@@ -22,8 +23,9 @@ const numbers = new Set([1,2,5]);
 const { title, content, index} = Astro.props as CardService;
 ---
 
-<div class={`cardservice ${numbers.has(index)  && "cardservice__accent"}`}>
+<div class={`cardservice ${numbers.has(index)  && "cardservice__accent"}`} aria-labelledby="cardservicetitle">
     <img class="cardservice__image" src={images[index].src} alt="transport maritime">
-    <h3 class="cardservice__title subheading">{title}</h3>
-    <p class="cardservice__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p>
+    <h3 class="cardservice__title subheading" id="cardservicetitle">{title}</h3>
+    <p class="cardservice__body">{content}</p>
+    <!-- <p class="cardservice__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p> -->
 </div>
