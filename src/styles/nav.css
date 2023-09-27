@@ -28,7 +28,16 @@
     --logo-size: 3em;
     width: var(--logo-size);
     height: var(--logo-size);
+    transform: scale(1.5);
 } 
+
+@media(min-width: 42em){
+    .logo {
+        transform: scale(1);
+        --logo-size: 14em;
+        height: 100%;
+    }
+}
 
 .links {
     display:flex;

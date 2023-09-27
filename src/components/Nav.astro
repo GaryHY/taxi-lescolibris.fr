@@ -2,7 +2,8 @@
 import "../styles/nav.css"
 
 import {Image} from 'astro:assets';
-import logo from "../images/hero/logo2.png";
+import logo_mobile from "../images/hero/logo_mobile.png";
+import logo from "../images/hero/logo.png";
 ---
 
 <script src="../scripts/nav.js"></script>
@@ -11,7 +12,10 @@ import logo from "../images/hero/logo2.png";
 <nav class="nav" id="nav">
     <div class="container nav__content">
         <a href="/">
-            <Image class="logo" src={logo} alt="logo"/>
+            <picture>
+                <source class="logo" srcset={logo.src} media="(min-width: 42em)">
+                <Image class="logo" src={logo_mobile} alt="logo"/>
+            </picture>
         </a>
         <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
             <span class="sr-only">Menu</span>
