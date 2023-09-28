@@ -5,7 +5,7 @@ import mail from "../images/hero/mail.svg";
 ---
 
 <section class="hero__section" aria-labelledby="pageheader">
-    <div class="hero__section__content hidden container">
+    <div class="hero__section__content container">
         <div class="hero__text">
             <div class="help_flex">
                 <h1 class="hero__title" role="heading" id="pageheader">Retrouver Votre <span class="taxi">taxi</span> de confiance en <span class="gwada">Guadeloupe</span></h1>

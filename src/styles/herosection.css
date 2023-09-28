@@ -3,6 +3,10 @@
 }
 
 .hero__section {
+    background-color: #82d8d8; 
+}
+
+.hero__section {
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -66,9 +70,7 @@
     width: clamp(1.5em, 3vw, 3.5em);
 }
 
-/* ici on gere le floating button */
 .floating .hero__button {
-    /* TODO: Make different keyframes to have a more smooth animation */
     position: fixed;
     top: 80%;
     top: 55%;
@@ -77,12 +79,37 @@
     border-radius: 100vw;
     padding: clamp(0.5em, 2vw, 1em);
     z-index: 10000000;
-    transition: all 750ms ease-in-out;
 }
 
 
 .floating .button__content {
     display: none;
+}
+
+@media(prefers-reduced-motion: no-preference){
+    .floating .moveButton {
+        animation: moveButton 2s cubic-bezier(0.23, 1, 0.320, 1);
+    }
+}
+
+@keyframes moveButton {
+    0% {
+        position: fixed;
+        top: 0;
+        right: 50%;
+    }
+
+    20% {
+        right: 5%;
+    }
+
+    100% {
+        position: fixed;
+        top: 80%;
+        top: 55%;
+        right: calc((100% - var(--content-width)) / 4);
+        transform: translateX(50%);
+    }
 }
 
 
@@ -117,11 +144,6 @@
 .floating .button__image {
     display: block;
 }
-
-.tooltip {
-    display: none;
-}
-
 
 .hero__button:is(:hover, :focus) .button__content {
     display: inline;

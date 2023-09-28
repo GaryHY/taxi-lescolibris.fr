@@ -27,12 +27,8 @@ const cards = [
         <h2 class="section__title heading" id="qualityheader">mes qualites</h2>
         <ul class="cards" role="list">
             {cards.map(card => {
-                return <li><Card title={card.title} body={card.body} dataIcon={card.dataIcon} /></li>
+                return <li class="card__element"><Card title={card.title} body={card.body} dataIcon={card.dataIcon} /></li>
             })}
-
-            <!-- <Card /> -->
-            <!-- <Card /> -->
-            <!-- <Card /> -->
         </ul>
     </div>
 </section>
