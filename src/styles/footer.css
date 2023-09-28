@@ -7,25 +7,25 @@ footer {
     position: relative;
 }
 
-footer::before,
-footer::after {
-    --triangle-size: 40px;
-    content: '';
-    position: absolute;
-    bottom: 0;
-    aspect-ratio: 1;
-    border-bottom: var(--triangle-size) solid white;
-}
-
-footer::before {
-    left: 0;
-    border-right: var(--triangle-size) solid transparent;
-}
-
-footer::after {
-    right: 0;
-    border-left: var(--triangle-size) solid transparent;
-}
+/* footer::before, */
+/* footer::after { */
+/*     --triangle-size: 40px; */
+/*     content: ''; */
+/*     position: absolute; */
+/*     bottom: 0; */
+/*     aspect-ratio: 1; */
+/*     border-bottom: var(--triangle-size) solid white; */
+/* } */
+/**/
+/* footer::before { */
+/*     left: 0; */
+/*     border-right: var(--triangle-size) solid transparent; */
+/* } */
+/**/
+/* footer::after { */
+/*     right: 0; */
+/*     border-left: var(--triangle-size) solid transparent; */
+/* } */
 
 .footer__top > * + * {
     margin-top: 1.5rem;

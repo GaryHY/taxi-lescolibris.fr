@@ -4,9 +4,6 @@
 
 .hero__section {
     background-color: #82d8d8; 
-}
-
-.hero__section {
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -72,10 +69,9 @@
 
 .floating .hero__button {
     position: fixed;
-    top: 80%;
-    top: 55%;
-    right: calc((100% - var(--content-width)) / 4);
-    transform: translateX(50%);
+    /* top: 80%; */
+    /* right: calc((100% - var(--content-width)) / 4); */
+    /* transform: translateX(50%); */
     border-radius: 100vw;
     padding: clamp(0.5em, 2vw, 1em);
     z-index: 10000000;
@@ -88,13 +84,13 @@
 
 @media(prefers-reduced-motion: no-preference){
     .floating .moveButton {
-        animation: moveButton 2s cubic-bezier(0.23, 1, 0.320, 1);
+        position: fixed;
+        animation: moveButton 2s cubic-bezier(0.23, 1, 0.320, 1) both;
     }
 }
 
 @keyframes moveButton {
     0% {
-        position: fixed;
         top: 0;
         right: 50%;
     }
@@ -104,9 +100,8 @@
     }
 
     100% {
-        position: fixed;
         top: 80%;
-        top: 55%;
+        /* top: 55%; */
         right: calc((100% - var(--content-width)) / 4);
         transform: translateX(50%);
     }
