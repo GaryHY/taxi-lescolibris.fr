@@ -1,7 +1,7 @@
 .vehicle {
     background-color: #d9d9d9;
     position: relative;
-    /* TODO: ce truc est utile ? */
+    /* NOTE: Permet la circularite de la linked list */
     overflow: hidden;
 }
 
@@ -17,9 +17,6 @@
 }
 
 .carousel__container {
-    /* display: flex; */
-    /* align-items:center; */
-    /* justify-content: center; */
     overflow: hidden;
     margin-inline:auto;
     width: 70%;
@@ -93,7 +90,6 @@
 
 @media(min-width: 50em){
     .vehicle__description {
-        /* display: grid; */
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 0;
