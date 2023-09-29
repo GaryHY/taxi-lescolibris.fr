@@ -1,11 +1,9 @@
-// Des variables interessantes pour le debut.
 const col_count = parseInt(getComputedStyle(document.querySelector(".carousel")).getPropertyValue("--col-count"));
 const image_count = document.querySelectorAll(".photo").length; 
 const max_index = Math.ceil(image_count / col_count);
 
 const progressBar = document.querySelector(".progress_bar");
 
-// // On cree les divs pour la barre de progression:
 function handleProgressBar(active_index){
     progressBar.innerHTML = "";
     for(let i=0; i<max_index; i++){
@@ -30,9 +28,6 @@ document.addEventListener("click", e => {
     if (handle !== null ) onHandleClick(handle);
 })
 
-// TODO: Changer la circularite de la linked list. Pour cela il faut aller chercher les images dans une base de donnee 
-// et elles ne sont pas hardcoder dans le html. L'idee serait de manipuler le dom element depuis javascript et de
-// travailler avec une linked list circulaire contenant tous les elements de la liste.
 function onHandleClick(handle) {
     const slider = handle.closest(".container").querySelector(".slider");
     const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"));

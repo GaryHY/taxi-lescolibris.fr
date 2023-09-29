@@ -1,4 +1,3 @@
-// const heroBody = document.querySelector(".hero__body");
 const title = document.querySelector(".hero__title");
 const cards = document.querySelectorAll(".card__element");
 
@@ -20,7 +19,6 @@ const moveBtn = (e) => {
 const moveBtnIntersectObs = new IntersectionObserver(moveBtn);
 
 
-// moveBtnIntersectObs.observe(heroBody);
 moveBtnIntersectObs.observe(title);
 
 
