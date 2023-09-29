@@ -1,26 +1,11 @@
-/* general */
 .vehicle {
     background-color: #d9d9d9;
-    position: relative;
-    /* pour eviter le overflow horizontal du au pattern. */
-    overflow: hidden;
+    /* position: relative; */
+    /* TODO: ce truc est utile ? */
+    /* overflow: hidden; */
 }
 
-/* .vehicle::before { */
-/*     --triangle-lenght: 300px; */
-/*     content: ''; */
-/*     position: absolute; */
-/*     top: 0; */
-/*     right: 0; */
-/*     width: 0; */
-/*     height: 0; */
-/*     border-top: var(--triangle-lenght) solid white; */
-/*     border-left: var(--triangle-lenght) solid transparent; */
-/* } */
-
-
 /* TODO: Make the carousel accessible */
-/* top carousel */
 .carousel {
     margin-top: 4em;
     --slider-padding: 5rem;
@@ -36,9 +21,6 @@
     /* align-items:center; */
     /* justify-content: center; */
     overflow: hidden;
-
-    /* NOTE: On teste des trucs */
-    /* position: relative; */
     margin-inline:auto;
     width: 70%;
 }
@@ -57,9 +39,6 @@
     border:none;
     background: none;
     z-index: 1000;
-    /* width: 4em; */
-    /* width: 2em; */
-    /* width: 4vw; */
     width: clamp(2em, 4vw, 4em);
     top: 50%;
     position: absolute;
@@ -67,11 +46,11 @@
 
 .right_handle {
     transform: translateY(-50%) rotateZ(180deg);
-    right: clamp(1em, 2vw, 3em);
+    right: clamp(0.5em, 2vw, 3em);
 }
 
 .left_handle {
-    left: clamp(1em, 2vw, 3em);
+    left: clamp(0.5em, 2vw, 3em);
     transform: translateY(-50%);
 }
 
@@ -87,6 +66,8 @@
     gap: 2em;
     gap: clamp(1em, 4vw, 2em);
     justify-content: center;
+    /* TODO: Je ne sais pas quoi faire pour que la div se montre. */
+    height: 100%;
 }
 
 .progress_bar_item {
@@ -103,8 +84,6 @@
 
 /* ------------------------------------------------------ */
 
-/* bottom  */
-
 .vehicle__description {
     display: grid;
     grid-auto-flow: row;
@@ -115,15 +94,11 @@
 }
 
 @media(min-width: 50em){
-    /* top carousel */
-
-    /* bottom */
     .vehicle__description {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         grid-template-rows: repeat(3, 1fr);
         gap: 0;
-        /* grid-gap: 1em 1em; */
         max-width: none;
         width: 100%;
         margin-top: 4em;

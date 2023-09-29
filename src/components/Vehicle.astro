@@ -41,26 +41,27 @@ const elements = [
     <div class="container">
         <h2 class="vehicle__title heading" id="vehicleheader">le vehicule</h2>
         <div class="carousel">
-                <div class="carousel__position__handle">
-            <div class="carousel__container">
-                <button class="handle left_handle">
-                    <Image class="arrow" src={left_arrow} alt="left-arrow" />
-                </button>
-                <div class="slider">
-                    <img class="photo" src={car1.src} alt="front view">
-                    <img class="photo" src={car2.src} alt="rear view" />
-                    <img class="photo" src={car3.src} alt="side view" />
-                    <img class="photo" src={car4.src} alt="wheel view" />
-                    <img class="photo" src={car5.src} alt="inside view" />
-                    <img class="photo" src={car6.src} alt="front view" />
+            <div class="carousel__position__handle">
+                <div class="carousel__container">
+                    <button class="handle left_handle">
+                        <Image class="arrow" src={left_arrow} alt="left-arrow" />
+                    </button>
+                    <div class="slider">
+                        <img class="photo" src={car1.src} alt="front view">
+                        <img class="photo" src={car2.src} alt="rear view" />
+                        <img class="photo" src={car3.src} alt="side view" />
+                        <img class="photo" src={car4.src} alt="wheel view" />
+                        <img class="photo" src={car5.src} alt="inside view" />
+                        <img class="photo" src={car6.src} alt="front view" />
+                    </div>
+                    <button class="handle right_handle">
+                        <Image class="arrow" src={left_arrow} alt="left-arrow" />
+                    </button>
                 </div>
-                <button class="handle right_handle">
-                    <Image class="arrow" src={left_arrow} alt="left-arrow" />
-                </button>
             </div>
-                </div>
             <div class="progress_bar"></div>
         </div>
+
         <div class="vehicle__description">
             {elements.map(element => (
                 <div data-position={element.position}>
