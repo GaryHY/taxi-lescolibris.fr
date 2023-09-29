@@ -149,7 +149,7 @@ label {
 }
 
 textarea ~ .error {
-    top: 18em;
+    top: 18.5em;
 }
 
 label.fail input,
