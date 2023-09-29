@@ -230,6 +230,6 @@ textarea:focus ~ .labelline {
     }
 
     textarea ~ .error {
-        top: 16em;
+        top: 16.5em;
     }
 }
