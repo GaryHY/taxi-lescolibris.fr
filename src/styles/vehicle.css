@@ -1,8 +1,8 @@
 .vehicle {
     background-color: #d9d9d9;
-    /* position: relative; */
+    position: relative;
     /* TODO: ce truc est utile ? */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 /* TODO: Make the carousel accessible */
