@@ -16,6 +16,10 @@ function handleProgressBar(active_index){
     }
 }
 
+// NOTE: ici je vais essayer de voir si la progress bar est presente.
+progressBar.style.backgroundColor = "red";
+progressBar.style.fontSize = "12rem";
+
 handleProgressBar(0);
 
 document.addEventListener("click", e => {
