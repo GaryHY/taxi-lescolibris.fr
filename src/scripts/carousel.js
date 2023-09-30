@@ -63,3 +63,13 @@ function onHandleClick(handle) {
     handleProgressBar(value);
 }
 
+
+// NOTE: a remettre dans le html
+        // <div class="vehicle__description">
+        //     {elements.map(element => (
+        //         <div data-position={element.position}>
+        //             <Case title={element.title}, content={element.content} />
+        //         </div>
+        //     ))}
+        // </div>
+
