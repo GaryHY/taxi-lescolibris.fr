@@ -51,6 +51,8 @@ function onHandleClick(handle) {
         value = sliderIndex === 0 ? max_index - 1 : sliderIndex - 1;
         if (value === max_index -1){
             vehicle.style.backgroundColor = "blue";
+        } else {
+            vehicle.style.backgroundColor = "hotpink";
         }
     } else if(handle.classList.contains("right_handle")){
         value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
