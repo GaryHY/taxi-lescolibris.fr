@@ -10,6 +10,8 @@
 
 .card__element {
     opacity: 0;
+    /* NOTE:remove that to get the old animation */
+    opacity: 1;
 }
 
 .card__element:nth-child(2){
@@ -20,11 +22,11 @@
     animation-delay: 200ms;
 }
 
-@media(prefers-reduced-motion: no-preference) {
-    .animateCard {
-        animation: moveCard 500ms ease-in-out both;
-    }
-}
+/* @media(prefers-reduced-motion: no-preference) { */
+/*     .animateCard { */
+/*         animation: moveCard 500ms ease-in-out both; */
+/*     } */
+/* } */
 
 @keyframes moveCard {
     0% {

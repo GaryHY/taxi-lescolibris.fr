@@ -33,19 +33,9 @@ function onHandleClick(handle) {
     const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"));
     let value;
     if(handle.classList.contains("left_handle")){
-        if (sliderIndex === 0){
-            value = max_index - 1;
-        } else {
-            value =  sliderIndex - 1;
-        }
-        // value = sliderIndex === 0 ? max_index - 1 : sliderIndex - 1;
+        value = sliderIndex === 0 ? max_index - 1 : sliderIndex - 1;
     } else if(handle.classList.contains("right_handle")){
-        // value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
-        if (sliderIndex === max_index -1){
-            value = 0;
-        } else {
-            value =  sliderIndex + 1;
-        }
+        value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
     }
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
