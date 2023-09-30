@@ -4,6 +4,7 @@ const max_index = Math.ceil(image_count / col_count);
 
 const displayValue = document.querySelector(".displayValue");
 const colcount = document.querySelector(".colcount");
+const imgcount = document.querySelector(".imgcount");
 
 const progressBar = document.querySelector(".progress_bar");
 
@@ -63,7 +64,8 @@ function onHandleClick(handle) {
     }
     counter.innerText = `value is : ${value}`
     displayValue.innerText = `max_index is : ${max_index}`;
-    colcount.innerText = `colcount is : ${colcount}`;
+    colcount.innerText = `image_count is : ${col_count}`;
+    imgcount.innerText = `img_count is : ${image_count}`;
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
 }
