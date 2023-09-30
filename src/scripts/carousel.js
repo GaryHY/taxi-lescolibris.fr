@@ -46,6 +46,7 @@ document.addEventListener("click", e => {
 function onHandleClick(handle) {
     const slider = handle.closest(".container").querySelector(".slider");
     const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"));
+    const counter = document.querySelector(".counter");
     let value;
     if(handle.classList.contains("left_handle")){
         value = sliderIndex === 0 ? max_index - 1 : sliderIndex - 1;
@@ -57,6 +58,7 @@ function onHandleClick(handle) {
     } else if(handle.classList.contains("right_handle")){
         value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
     }
+    counter.innerText = `value is : ${value}`
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
 }
