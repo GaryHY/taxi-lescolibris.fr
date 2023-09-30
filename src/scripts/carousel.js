@@ -17,7 +17,7 @@ const toggleBg = () => {
 }
 
 function handleProgressBar(active_index){
-    toggleBg();
+    // toggleBg();
     progressBar.innerHTML = "";
     for(let i=0; i<max_index; i++){
         const item = document.createElement("div"); 
