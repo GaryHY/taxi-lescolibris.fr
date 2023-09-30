@@ -4,7 +4,20 @@ const max_index = Math.ceil(image_count / col_count);
 
 const progressBar = document.querySelector(".progress_bar");
 
+const vehicle = document.querySelector(".vehicle");
+vehicle.style.backgroundColor = "red";
+
+// Une fonction pour savoir si je suis bien dans le handle progress.
+const toggleBg = () => {
+    if(vehicle.style.backgroundColor === "red"){
+        vehicle.style.backgroundColor = "white"; 
+    } else {
+        vehicle.style.backgroundColor = "red"; 
+    }
+}
+
 function handleProgressBar(active_index){
+    toggleBg();
     progressBar.innerHTML = "";
     for(let i=0; i<max_index; i++){
         const item = document.createElement("div"); 
@@ -16,9 +29,7 @@ function handleProgressBar(active_index){
     }
 }
 
-// NOTE: ici je vais essayer de voir si la progress bar est presente.
-progressBar.style.backgroundColor = "red";
-progressBar.style.fontSize = "12rem";
+
 
 handleProgressBar(0);
 
