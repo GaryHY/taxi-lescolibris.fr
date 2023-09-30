@@ -1,5 +1,5 @@
 /* NOTE: Une petite classe pour aider dans le debug */
-.counter, .displayValue {
+.counter, .displayValue, .colcount {
     font-size: 5rem;
     text-align: center;
     margin-bottom: 3rem;
