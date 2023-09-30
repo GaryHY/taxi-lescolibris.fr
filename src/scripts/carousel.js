@@ -2,6 +2,8 @@ const col_count = parseInt(getComputedStyle(document.querySelector(".carousel"))
 const image_count = document.querySelectorAll(".photo").length; 
 const max_index = Math.ceil(image_count / col_count);
 
+const displayValue = document.querySelector(".value");
+
 const progressBar = document.querySelector(".progress_bar");
 
 const vehicle = document.querySelector(".vehicle");
@@ -59,6 +61,7 @@ function onHandleClick(handle) {
         value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
     }
     counter.innerText = `value is : ${value}`
+    displayValue.innerText = `max_index est : ${max_index}`;
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
 }
