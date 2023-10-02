@@ -1,20 +1,19 @@
-.sr-only:not(:focus):not(:active){
-    clip: rect(0 0 0 0); 
-    clip-path: inset(50%);
-    height: 1px;
-    overflow: hidden;
-    position: absolute;
-    white-space: nowrap; 
-    width: 1px;
-    background-color: red;
-}
+/* NOTE: Je commente cela et je retire "Menu" dans le tag associe */
+/* .sr-only:not(:focus):not(:active){ */
+/*     clip: rect(0 0 0 0);  */
+/*     clip-path: inset(50%); */
+/*     height: 1px; */
+/*     overflow: hidden; */
+/*     position: absolute; */
+/*     white-space: nowrap;  */
+/*     width: 1px; */
+/*     background-color: red; */
+/* } */
+
 .nav {
     /* version1 */
     background-color: #191919;
     color: white;
-    /* version2 */
-    /* color: #191919; */
-    /* background-color: white; */
 }
 .nav__content {
     display:flex;
@@ -43,10 +42,6 @@
     display:flex;
     align-items: center;
     gap: 2rem;
-}
-
-.hamburger_icon {
-    display: none;
 }
 
 .link {
@@ -97,16 +92,12 @@
     display: none;
 }
 
-.mobile-nav-toggle:is(:hover, :focus){
-    cursor: pointer;
-}
 
 .gwada {
     position: relative;
 }
 
-.gwada::after ,
-.gwada::before {
+.gwada::after {
     content: '';
     background-repeat:no-repeat;
     position: absolute;
@@ -138,6 +129,10 @@
 
     .mobile-nav-toggle[aria-expanded="true"]{
         background-image: url("../images/hero/close.svg");
+    }
+
+    .mobile-nav-toggle:is(:hover, :focus){
+        cursor: pointer;
     }
 
     .contact_btn {
