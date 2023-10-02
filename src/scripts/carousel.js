@@ -9,7 +9,7 @@ const imgcount = document.querySelector(".imgcount");
 const progressBar = document.querySelector(".progress_bar");
 
 const vehicle = document.querySelector(".vehicle");
-vehicle.style.backgroundColor = "red";
+// vehicle.style.backgroundColor = "red";
 
 // Une fonction pour savoir si je suis bien dans le handle progress.
 const toggleBg = () => {
@@ -61,10 +61,15 @@ function onHandleClick(handle) {
         }
     } else if(handle.classList.contains("right_handle")){
         value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
+        if (value === max_index -1){
+            vehicle.style.backgroundColor = "red";
+        } else {
+            vehicle.style.backgroundColor = "limegreen";
+        }
     }
     counter.innerText = `value is : ${value}`
     displayValue.innerText = `max_index is : ${max_index}`;
-    colcount.innerText = `image_count is : ${col_count}`;
+    colcount.innerText = `col_count is : ${col_count}`;
     imgcount.innerText = `img_count is : ${image_count}`;
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
