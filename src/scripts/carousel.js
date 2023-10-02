@@ -1,3 +1,4 @@
+// TODO: Fixer le probleme avec col count
 const col_count = parseInt(getComputedStyle(document.querySelector(".carousel")).getPropertyValue("--col-count"));
 const image_count = document.querySelectorAll(".photo").length; 
 const max_index = Math.ceil(image_count / col_count);
