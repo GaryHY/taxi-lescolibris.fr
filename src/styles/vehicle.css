@@ -1,8 +1,14 @@
 /* NOTE: Une petite classe pour aider dans le debug */
 .counter, .displayValue, .colcount, .imgcount {
-    font-size: 5rem;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 3rem;
+}
+
+.values {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
 .vehicle {
