@@ -1,8 +1,8 @@
 // TODO: Fixer le probleme avec col count
-const col_count = parseInt(getComputedStyle(document.querySelector(".carousel")).getPropertyValue("--col-count"));
+// const col_count = parseInt(getComputedStyle(document.querySelector(".carousel")).getPropertyValue("--col-count"));
 const image_count = document.querySelectorAll(".photo").length; 
 // const max_index = Math.ceil(image_count / col_count);
-const max_index = image_count / col_count;
+const max_index = image_count;
 
 const displayValue = document.querySelector(".displayValue");
 const colcount = document.querySelector(".colcount");
@@ -11,7 +11,6 @@ const imgcount = document.querySelector(".imgcount");
 const progressBar = document.querySelector(".progress_bar");
 
 const vehicle = document.querySelector(".vehicle");
-// vehicle.style.backgroundColor = "red";
 
 function handleProgressBar(active_index){
     progressBar.innerHTML = "";
@@ -59,7 +58,7 @@ function onHandleClick(handle) {
     }
     counter.innerText = `value is : ${value}`
     displayValue.innerText = `max_index is : ${max_index}`;
-    colcount.innerText = `col_count is : ${col_count}`;
+    // colcount.innerText = `col_count is : ${col_count}`;
     imgcount.innerText = `sliderIndex is : ${sliderIndex}`;
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
