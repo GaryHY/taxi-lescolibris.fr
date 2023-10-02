@@ -16,7 +16,7 @@
     position: relative;
     /* NOTE: Permet la circularite de la linked list */
     /* TODO: why ? */
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 /* TODO: Make the carousel accessible */
