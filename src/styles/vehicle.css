@@ -15,7 +15,6 @@
     background-color: #d9d9d9;
     position: relative;
     /* NOTE: Permet la circularite de la linked list */
-    /* TODO: why ? */
     overflow: hidden;
 }
 

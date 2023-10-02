@@ -1,7 +1,8 @@
 // TODO: Fixer le probleme avec col count
 const col_count = parseInt(getComputedStyle(document.querySelector(".carousel")).getPropertyValue("--col-count"));
 const image_count = document.querySelectorAll(".photo").length; 
-const max_index = Math.ceil(image_count / col_count);
+// const max_index = Math.ceil(image_count / col_count);
+const max_index = image_count / col_count;
 
 const displayValue = document.querySelector(".displayValue");
 const colcount = document.querySelector(".colcount");
@@ -12,17 +13,7 @@ const progressBar = document.querySelector(".progress_bar");
 const vehicle = document.querySelector(".vehicle");
 // vehicle.style.backgroundColor = "red";
 
-// Une fonction pour savoir si je suis bien dans le handle progress.
-const toggleBg = () => {
-    if(vehicle.style.backgroundColor === "red"){
-        vehicle.style.backgroundColor = "white"; 
-    } else {
-        vehicle.style.backgroundColor = "red"; 
-    }
-}
-
 function handleProgressBar(active_index){
-    // toggleBg();
     progressBar.innerHTML = "";
     for(let i=0; i<max_index; i++){
         const item = document.createElement("div"); 
@@ -33,8 +24,6 @@ function handleProgressBar(active_index){
         progressBar.appendChild(item);
     }
 }
-
-
 
 handleProgressBar(0);
 
@@ -71,7 +60,7 @@ function onHandleClick(handle) {
     counter.innerText = `value is : ${value}`
     displayValue.innerText = `max_index is : ${max_index}`;
     colcount.innerText = `col_count is : ${col_count}`;
-    imgcount.innerText = `img_count is : ${image_count}`;
+    imgcount.innerText = `sliderIndex is : ${sliderIndex}`;
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
 }
