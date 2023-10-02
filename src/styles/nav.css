@@ -125,6 +125,7 @@
         background-size: cover;
         border: none;
         z-index: 9999; 
+        outline: 3px solid white;
     }
 
     .mobile-nav-toggle[aria-expanded="true"]{

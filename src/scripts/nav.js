@@ -7,7 +7,7 @@ navToggle.addEventListener("click", ()=>{
     if(visible === "true"){
         navToggle.setAttribute("aria-expanded", "false");
         primaryNav.setAttribute("data-visible", "false");
-        nav.style.backgroundColor = "white";
+        nav.style.backgroundColor = "blue";
     } else {
         nav.style.backgroundColor = "red";
         navToggle.setAttribute("aria-expanded", "true");
