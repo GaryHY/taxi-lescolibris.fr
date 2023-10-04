@@ -1,16 +1,10 @@
-// TODO: Fixer le probleme avec col count
+// NOTE: I cant use that value, it gives a Nan which the programm crash.
 // const col_count = parseInt(getComputedStyle(document.querySelector(".carousel")).getPropertyValue("--col-count"));
 const image_count = document.querySelectorAll(".photo").length; 
 // const max_index = Math.ceil(image_count / col_count);
 const max_index = image_count;
 
-const displayValue = document.querySelector(".displayValue");
-const colcount = document.querySelector(".colcount");
-const imgcount = document.querySelector(".imgcount");
-
 const progressBar = document.querySelector(".progress_bar");
-
-const vehicle = document.querySelector(".vehicle");
 
 function handleProgressBar(active_index){
     progressBar.innerHTML = "";
@@ -37,40 +31,27 @@ document.addEventListener("click", e => {
 })
 
 function onHandleClick(handle) {
-    const slider = handle.closest(".container").querySelector(".slider");
+    // const slider = handle.closest(".container").querySelector(".slider");
+    const slider = handle.closest(".carousel__container").querySelector(".slider");
     const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"));
-    const counter = document.querySelector(".counter");
     let value;
     if(handle.classList.contains("left_handle")){
         value = sliderIndex === 0 ? max_index - 1 : sliderIndex - 1;
-        if (value === max_index -1){
-            vehicle.style.backgroundColor = "blue";
-        } else {
-            vehicle.style.backgroundColor = "hotpink";
-        }
     } else if(handle.classList.contains("right_handle")){
         value = sliderIndex === max_index - 1 ? 0 : sliderIndex + 1;
-        if (value === max_index -1){
-            vehicle.style.backgroundColor = "red";
-        } else {
-            vehicle.style.backgroundColor = "limegreen";
-        }
     }
-    counter.innerText = `value is : ${value}`
-    displayValue.innerText = `max_index is : ${max_index}`;
-    // colcount.innerText = `col_count is : ${col_count}`;
-    imgcount.innerText = `sliderIndex is : ${sliderIndex}`;
     slider.style.setProperty("--slider-index", value);
     handleProgressBar(value);
 }
 
+// gallery 
 
-// NOTE: a remettre dans le html
-        // <div class="vehicle__description">
-        //     {elements.map(element => (
-        //         <div data-position={element.position}>
-        //             <Case title={element.title}, content={element.content} />
-        //         </div>
-        //     ))}
-        // </div>
+const photos = document.querySelectorAll(".photo");
+photos.forEach(photo => {
+    photo.addEventListener("click", (e) => {
+        console.log("I clicked a photo");
+        console.log(e.target.src);
+    })
+})
+
 

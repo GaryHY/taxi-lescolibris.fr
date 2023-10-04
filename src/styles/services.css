@@ -3,14 +3,16 @@
     background-color: white;
 }
 
+.services,
+.service__description {
+    opacity: 0;
+}
+
 .service__description {
     padding-block: 4em;
     padding-left: 2em;
-    /* padding: 4em 3em; */
-    /* padding-right: 7em; */
     padding-right: calc(100% - var(--content-width) + 3.5vw);
     padding-right: calc((100% - var(--content-width)) / 0.9);
-    /* padding-right: var(--content-width); */
 }
 
 .outer_grid {
@@ -21,8 +23,6 @@
 
 .services {
     display: grid;
-    /* NOTE: L'ancienne version avec les huit cards dont prise en charge handi */
-    /* grid-template-rows: repeat(3,1fr); */
     grid-template-rows: repeat(2,1fr);
     grid-template-columns: repeat(2,1fr);
 }

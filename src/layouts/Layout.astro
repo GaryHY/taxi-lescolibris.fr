@@ -156,6 +156,12 @@ const { title } = Astro.props;
         font-size: clamp(1.4rem, 3.5vw, 3.5rem);
     }
 
+    @media(prefers-reduced-motion: no-preference){
+        .animateHeading {
+            animation: fade 1s both, slideUp 1s both;
+        }
+    }
+
 
     .heading::before,
     .heading::after {
@@ -198,6 +204,74 @@ const { title } = Astro.props;
         font-weight: 600;
         /* TODO: utiliser des clamps si l'envie m'en dit. */
         font-size: 1.3em;
+    }
+
+    /* animation  */
+
+    @keyframes slideInLeft {
+        from {
+            transform: translateX(-100%);
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes dropDown {
+        from {
+            transform: translateY(-100%);
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideUp {
+        from {
+            transform: translateY(100%);
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .slideUp {
+        animation: slideUp 1s both;
+    }
+
+    @keyframes fade {
+        0% {
+            filter: blur(10px);
+            opacity: 0;
+        }
+        55% {
+            opacity: 0;
+        }
+        100% {
+            filter: blur(0);
+            opacity: 1;
+        }
+    }
+
+    .fade {
+        animation: fade 1s both;
+    }
+
+    @keyframes getBig {
+        from {
+            width: 60%;
+        }
+        to {
+            width: 100%;
+            opacity: 1;
+        }
+    }
+
+    .getBig {
+        animation: getBig 1s both;
     }
 
 </style>

@@ -8,6 +8,7 @@
     background-color: #111;
     color: white;
     border-radius: var(--border-radius);
+    opacity: 0;
 }
 
 .telephone,
@@ -196,6 +197,10 @@ textarea:focus ~ .labelline {
 }
 
 @media(max-width: 41em) {
+    .contact__image, .telephone__number {
+        margin-top: 3em;
+    }
+
     .mail {
         padding-inline: 2em;
     }

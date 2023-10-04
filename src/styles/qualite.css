@@ -8,42 +8,25 @@
     gap: 1em;
 }
 
-.card__element {
+.card__element,
+#qualityheader {
     opacity: 0;
-    /* NOTE:remove that to get the old animation */
-    opacity: 1;
 }
 
 .card__element:nth-child(2){
-    animation-delay: 100ms;
-}
-
-.card__element:nth-child(3){
     animation-delay: 200ms;
 }
 
-/* @media(prefers-reduced-motion: no-preference) { */
-/*     .animateCard { */
-/*         animation: moveCard 500ms ease-in-out both; */
-/*     } */
-/* } */
-
-@keyframes moveCard {
-    0% {
-        opacity: 0;
-        filter: blur(5px);
-        transform: translateX(-100%);
-    }
-    55% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0);
-        transform: translateX(0);
-    }
-
+.card__element:nth-child(3){
+    animation-delay: 400ms;
 }
+
+@media(prefers-reduced-motion: no-preference) {
+    .animateCard {
+        animation: slideInLeft 1000ms ease-in-out both, fade 1s both;
+    }
+}
+
 
 @media(max-width: 44em){
     .cards {
