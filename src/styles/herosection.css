@@ -136,7 +136,6 @@
     display: block;
 }
 
-/* NOTE: ce truc posait probleme */
 .floating > .hero__button:is(:hover, :focus) .button__content {
     display: inline;
     position: fixed;

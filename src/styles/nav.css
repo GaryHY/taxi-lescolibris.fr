@@ -1,17 +1,14 @@
-/* NOTE: Je commente cela et je retire "Menu" dans le tag associe */
-/* .sr-only:not(:focus):not(:active){ */
-/*     clip: rect(0 0 0 0);  */
-/*     clip-path: inset(50%); */
-/*     height: 1px; */
-/*     overflow: hidden; */
-/*     position: absolute; */
-/*     white-space: nowrap;  */
-/*     width: 1px; */
-/*     background-color: red; */
-/* } */
+.sr-only:not(:focus):not(:active){
+    clip: rect(0 0 0 0); 
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+}
 
 .nav {
-    /* version1 */
     background-color: #191919;
     color: white;
 }
@@ -176,12 +173,12 @@
 
     .links {
         display: flex;
+        flex-direction: column;
         gap: 2rem;
         /* font-size: 1.3rem; */
         position: fixed;
         inset: 0 0 0 40%;
         inset: 0 0 0 30%;
-        flex-direction: column;
         padding: 8em 2em;
         align-items: start;
         background:hsl(0 0% 0% / 0.75);
@@ -205,8 +202,11 @@
     .logo {
         animation: slideInLeft 1s;
     }
-    
-    .links {
-        animation: dropDown 1s;
+
+    @media(min-width: 41em){
+        .links {
+            animation: dropDown 1s;
+        }
     }
+    
 }

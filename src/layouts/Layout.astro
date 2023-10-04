@@ -207,7 +207,6 @@ const { title } = Astro.props;
     }
 
     /* animation  */
-
     @keyframes slideInLeft {
         from {
             transform: translateX(-100%);
@@ -238,16 +237,13 @@ const { title } = Astro.props;
         }
     }
 
-    .slideUp {
-        animation: slideUp 1s both;
-    }
 
     @keyframes fade {
         0% {
             filter: blur(10px);
             opacity: 0;
         }
-        55% {
+        20% {
             opacity: 0;
         }
         100% {
@@ -256,9 +252,6 @@ const { title } = Astro.props;
         }
     }
 
-    .fade {
-        animation: fade 1s both;
-    }
 
     @keyframes getBig {
         from {
@@ -270,8 +263,18 @@ const { title } = Astro.props;
         }
     }
 
-    .getBig {
-        animation: getBig 1s both;
+@media(prefers-reduced-motion: no-preference) {
+        .slideUp {
+            animation: slideUp 1s both;
+        }
+
+        .fade {
+            animation: fade 1s both;
+        }
+
+        .getBig {
+            animation: getBig 1s both;
+        }
     }
 
 </style>

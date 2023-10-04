@@ -3,10 +3,10 @@ const cards = document.querySelectorAll(".card__element");
 const title = document.getElementById("qualityheader");
 const cardtitle = document.querySelector(".card__title");
 const lastline = document.getElementById("lastline");
-const lefthandle = document.querySelector(".left_handle");
-const leftcase = document.querySelector("[data-position=left]")
+const vehicletitle = document.querySelector(".vehicle__title");
+const rightcase = document.querySelector("[data-position=right]")
 const contactintersect = document.getElementById("contactintersect");
-const nameintersect = document.querySelector(".nom");
+const nameintersect = document.querySelector(".telephone__title");
 
 const moveBtn = (e) => {
     const buttonContainer = document.querySelector(".button__container");
@@ -115,10 +115,10 @@ const vehicleIntersectObs = new IntersectionObserver(displayVehicle);
 vehicleIntersectObs.observe(lastline);
 
 const vehicleBlocIntersectObs = new IntersectionObserver(displayVehicle2);
-vehicleBlocIntersectObs.observe(lefthandle);
+vehicleBlocIntersectObs.observe(vehicletitle);
 
 const serviceIntersectObs = new IntersectionObserver(displayService);
-serviceIntersectObs.observe(leftcase);
+serviceIntersectObs.observe(rightcase);
 
 const contactIntersectObs = new IntersectionObserver(displayContact);
 contactIntersectObs.observe(contactintersect);
