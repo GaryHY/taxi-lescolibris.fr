@@ -5,8 +5,6 @@ const cardtitle = document.querySelector(".card__title");
 const lastline = document.getElementById("lastline");
 const vehicletitle = document.querySelector(".vehicle__title");
 const rightcase = document.querySelector("[data-position=right]")
-const contactintersect = document.getElementById("contactintersect");
-const nameintersect = document.querySelector(".telephone__title");
 
 const moveBtn = (e) => {
     const buttonContainer = document.querySelector(".button__container");
@@ -123,5 +121,5 @@ serviceIntersectObs.observe(rightcase);
 const contactIntersectObs = new IntersectionObserver(displayContact);
 contactIntersectObs.observe(contactintersect);
 
-const footerIntersect = new IntersectionObserver(displayFooter);
-footerIntersect.observe(nameintersect);
+// const footerIntersect = new IntersectionObserver(displayFooter);
+// footerIntersect.observe(nameintersect);

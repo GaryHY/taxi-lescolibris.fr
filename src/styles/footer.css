@@ -7,9 +7,9 @@ footer {
     position: relative;
 }
 
-.footer {
-    opacity: 0;
-}
+/* .footer { */
+/*     opacity: 0; */
+/* } */
 
 .footer__top > * + * {
     margin-top: 1.5rem;
@@ -25,6 +25,7 @@ footer {
     justify-content:center;
     gap: 1rem;
     align-items: center;
+    font-size: clamp(0.75em, 3vw, 1em);
 }
 
 .footer__nav li {
