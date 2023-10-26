@@ -13,8 +13,7 @@ const message = document.getElementById("message");
 const checkInput = (inputElement) => {
     const label = inputElement.parentElement;
     const labelline = label.querySelector(".labelline");
-    if (inputElement.value !== "") {
-        labelline.setAttribute("data-focus", "true")
+    if (inputElement.value !== "") { labelline.setAttribute("data-focus", "true")
     } else {
         labelline.setAttribute("data-focus", "false")
     }
@@ -107,20 +106,18 @@ const resetInputs = () => {
 }
 
 
-form.addEventListener("submit", e => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (validateInputs()){
-        resetInputs();
-        let formData = JSON.stringify({
+        let formData = {
             nom: nom.value,
             prenom: prenom.value,
             email: email.value,
             message: message.value,
-        });
-
-        // TODO: Find if the url used is the best url.
+        };
+        resetInputs();
         const url = "/";
-        fetch(url, {
+        await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
