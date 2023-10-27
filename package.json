@@ -1,16 +1,18 @@
 {
-  "name": "website",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^3.0.12",
-    "prettier": "^3.0.3"
-  }
+    "name": "website",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro",
+        "netd": "netlify dev"
+    },
+    "dependencies": {
+        "astro": "^3.0.12",
+        "netlify-cli": "^16.9.2",
+        "prettier": "^3.0.3"
+    }
 }

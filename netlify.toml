@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  functions = "functions"
+  publish = "site"
+
+[functions]
+  send-email = "functions/send-email"
+
