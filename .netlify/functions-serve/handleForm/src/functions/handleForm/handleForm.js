@@ -10851,7 +10851,6 @@ var require_nodemailer = __commonJS({
 var process2 = require("process");
 var nodemailer = require_nodemailer();
 var handler = async (event) => {
-  console.log("On va print l'event aussi pour voir", event);
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
