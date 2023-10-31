@@ -12,9 +12,9 @@ const handler = async (event) => {
   // const { formData } = JSON.parse(event.body).payload
   // console.log(`Voici les donnees: ${formData}`)
   const { nom, prenom, email, message } = event.body;
-    console.log(nom, prenom, email, message);
+    console.log(event.body);
 
-    console.log("\nOn va print l'event aussi pour voir", event);
+    // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
