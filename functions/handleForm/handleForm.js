@@ -14,9 +14,9 @@ const handler = async (event) => {
     console.log(event.body);
     const formData = JSON.parse(event.body).payload;
     console.log("Les donnees du formulaire de data sont : ", formData);
-    const nom = event.body.nom;
-    const prenom = event.body.prenom;
-    const email = event.body.email;
+    const nom = formData.nom;
+    const prenom = formData.prenom;
+    const email = formData.email;
     const message = formData.message;
     console.log("le message est :", message);
 
@@ -30,12 +30,16 @@ const handler = async (event) => {
         }
     });
 
+    console.log("Le transporteur :", transporter);
+
     const mailOptions = {
         from: nom + " " + prenom + " : @" + email,
         to: "gary.testmail.123@gmail.com",
         subject: "test du service de mail en fait.",
         text: message,
     };
+
+    console.log("le mail option : ", mailOptions);
 
     transporter.sendMail(mailOptions, (error, info) => {
         if(error){
