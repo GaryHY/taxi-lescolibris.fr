@@ -12,6 +12,7 @@ const handler = async (event) => {
   // const { formData } = JSON.parse(event.body).payload
   // console.log(`Voici les donnees: ${formData}`)
   const { nom, prenom, email, message } = event.body;
+    console.log(nom, prenom, email, message);
 
     // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
@@ -33,7 +34,6 @@ const handler = async (event) => {
     transporter.sendMail(mailOptions, (error, info) => {
         if(error){
             console.log("Something went wrong :", error);
-            // res.send("error");
             return {
                 statusCode: 500,
                 body: JSON.stringify({message: "Le mail n'a pas pu etre envoye avec succes"})
