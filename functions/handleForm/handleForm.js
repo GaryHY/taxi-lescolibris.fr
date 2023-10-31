@@ -14,7 +14,7 @@ const handler = async (event) => {
   const { nom, prenom, email, message } = event.body;
     console.log(nom, prenom, email, message);
 
-    // console.log("\nOn va print l'event aussi pour voir", event);
+    console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
