@@ -11,8 +11,12 @@ const nodemailer = require("nodemailer");
 const handler = async (event) => {
   // const { formData } = JSON.parse(event.body).payload
   // console.log(`Voici les donnees: ${formData}`)
-  const { nom, prenom, email, message } = event.body;
     console.log(event.body);
+    const nom = event.body.nom;
+    const prenom = event.body.prenom;
+    const email = event.body.email;
+    const message = event.body.message;
+    console.log("le message est :", message);
 
     // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({

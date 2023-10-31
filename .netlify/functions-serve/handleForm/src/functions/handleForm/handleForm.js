@@ -10851,7 +10851,8 @@ var require_nodemailer = __commonJS({
 var process2 = require("process");
 var nodemailer = require_nodemailer();
 var handler = async (event) => {
-  console.log("\nOn va print l'event aussi pour voir", event);
+  const { nom, prenom, email, message } = event.body;
+  console.log(event.body);
   const transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -10861,22 +10862,26 @@ var handler = async (event) => {
     }
   });
   const mailOptions = {
-    from: "moi",
+    from: nom + " " + prenom + " : @" + email,
     to: "gary.testmail.123@gmail.com",
     subject: "test du service de mail en fait.",
-    text: "Un texte pour tester de send des mails en fait."
+    text: message
   };
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
       console.log("Something went wrong :", error);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ message: "Le mail n'a pas pu etre envoye avec succes" })
+      };
     } else {
       console.log("Email sent :" + info.response);
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ message: "Le mail est envoye avec succes" })
+      };
     }
   });
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ message: "Le mail est envoye avec succes" })
-  };
 };
 module.exports = { handler };
 //# sourceMappingURL=handleForm.js.map

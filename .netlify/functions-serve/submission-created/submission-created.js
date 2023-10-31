@@ -1,1 +1,0 @@
-module.exports = require('./src/functions/submission-created/submission-created.js')
