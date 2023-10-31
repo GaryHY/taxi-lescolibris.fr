@@ -109,6 +109,7 @@ const resetInputs = () => {
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (validateInputs()){
+        console.log("On vient de valider l'input mon pote.")
         let formData = {
             nom: nom.value,
             prenom: prenom.value,
@@ -116,7 +117,9 @@ form.addEventListener("submit", async (e) => {
             message: message.value,
         };
         resetInputs();
-        const url = "/";
+        // TODO: Trouver l'url pour envoyer le contenu du form ma serverless function.
+        console.log("je tente de send tout le bordel a mon bail")
+        const url = "https://transports-lescolibris.netlify.app/.netlify/functions/handleForm";
         await fetch(url, {
           method: "POST",
           headers: {

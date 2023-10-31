@@ -10847,7 +10847,7 @@ var require_nodemailer = __commonJS({
   }
 });
 
-// functions/handleForm/handleForm.js
+// functions/submission-created/submission-created.js
 var process2 = require("process");
 var nodemailer = require_nodemailer();
 var handler = async (event) => {
@@ -10878,4 +10878,4 @@ var handler = async (event) => {
   };
 };
 module.exports = { handler };
-//# sourceMappingURL=handleForm.js.map
+//# sourceMappingURL=submission-created.js.map
