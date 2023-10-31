@@ -12,7 +12,7 @@ const handler = async (event) => {
   // const { email } = JSON.parse(event.body).payload
   // console.log(`Received a submission: ${email}`)
 
-    // console.log("\nOn va print l'event aussi pour voir", event);
+    console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
