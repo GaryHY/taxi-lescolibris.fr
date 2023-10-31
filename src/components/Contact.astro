@@ -16,7 +16,7 @@ import telephone from "../images/contact/phone.svg";
             </div>
             <div class="mail" aria-labelledby="mailheader">
                 <h3 class="mail__title subheading" id="mailheader">Par email</h3>
-                <form class="form" id="form" action="../../.netlify/functions/form-submitted" method="POST">
+                <form class="form" id="form" action="../../.netlify/functions/handleForm/handleForm.js" method="POST">
                   <input type="hidden" name="_subject" value="Envoyer moi un message pour tout renseignement concernant mes disponibilites ou si besoin d'informations complementaires." >
                   <label class="nom" aria-label="nom">
                     <input class="field" type="text" name="nom" id="nom" />

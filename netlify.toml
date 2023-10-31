@@ -3,5 +3,5 @@ command = "npm run build"
 functions = "functions"
 publish = "site"
 
-[functions]
-form-submitted = "functions/form-submitted"
+# [functions]
+# form-submitted = "functions/form-submitted"

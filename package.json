@@ -13,6 +13,7 @@
     "dependencies": {
         "astro": "^3.0.12",
         "netlify-cli": "^16.9.2",
+        "node-fetch": "^2.7.0",
         "prettier": "^3.0.3"
     }
 }
