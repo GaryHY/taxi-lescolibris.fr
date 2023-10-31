@@ -9,7 +9,7 @@ const nodemailer = require("nodemailer");
 
 // const { EMAIL_TOKEN } = process.env
 const handler = async (event) => {
-  // const { email } = JSON.parse(event.body).payload
+  const { nom, prenom, email, message } = JSON.parse(event.body).payload
   // console.log(`Received a submission: ${email}`)
 
     console.log("\nOn va print l'event aussi pour voir", event);
