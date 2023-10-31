@@ -9,10 +9,10 @@ const nodemailer = require("nodemailer");
 
 // const { EMAIL_TOKEN } = process.env
 const handler = async (event) => {
-  const { nom, prenom, email, message } = JSON.parse(event.body).payload
-  // console.log(`Received a submission: ${email}`)
+  const { formData } = JSON.parse(event.body).payload
+  console.log(`Voici les donnees: ${formData}`)
 
-    console.log("\nOn va print l'event aussi pour voir", event);
+    // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
         service: "gmail",
         auth: {
