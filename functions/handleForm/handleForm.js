@@ -17,7 +17,7 @@ const handler = async (event) => {
     const nom = event.body.nom;
     const prenom = event.body.prenom;
     const email = event.body.email;
-    const message = event.body.message;
+    const message = formData.message;
     console.log("le message est :", message);
 
     // console.log("\nOn va print l'event aussi pour voir", event);
