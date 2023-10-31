@@ -9,8 +9,9 @@ const nodemailer = require("nodemailer");
 
 // const { EMAIL_TOKEN } = process.env
 const handler = async (event) => {
-  const { formData } = JSON.parse(event.body).payload
-  console.log(`Voici les donnees: ${formData}`)
+  // const { formData } = JSON.parse(event.body).payload
+  // console.log(`Voici les donnees: ${formData}`)
+  const { nom, prenom, email, message } = event.body;
 
     // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
@@ -23,26 +24,29 @@ const handler = async (event) => {
     });
 
     const mailOptions = {
-        from: "moi",
+        from: nom + " " + prenom + " : @" + email,
         to: "gary.testmail.123@gmail.com",
         subject: "test du service de mail en fait.",
-        text: "Un texte pour tester de send des mails en fait.",
+        text: message,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
         if(error){
             console.log("Something went wrong :", error);
             // res.send("error");
+            return {
+                statusCode: 500,
+                body: JSON.stringify({message: "Le mail n'a pas pu etre envoye avec succes"})
+            }
         } else {
             console.log("Email sent :" + info.response);
-            // res.send("success");
+            return {
+                statusCode: 200,
+                body: JSON.stringify({message: "Le mail est envoye avec succes"})
+            }
         }
     });
 
-    return {
-        statusCode: 200,
-        body: JSON.stringify({message: "Le mail est envoye avec succes"})
-    }
 
 
   // try {
