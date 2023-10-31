@@ -23,9 +23,10 @@ const handler = async (event) => {
     // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
         service: "gmail",
+        port: 465,
         auth: {
-            user: "gary.testmail.123@gmail.com",
             // TODO: protect that with env variable.
+            user: "gary.testmail.123@gmail.com",
             pass : "nsmx rfvd tofc qrtf",
         }
     });
@@ -38,8 +39,6 @@ const handler = async (event) => {
         subject: "test du service de mail en fait.",
         text: message,
     };
-
-    console.log("le mail option : ", mailOptions);
 
     transporter.sendMail(mailOptions, (error, info) => {
         if(error){
@@ -77,12 +76,3 @@ const handler = async (event) => {
 }
 
 module.exports = { handler }
-
-
-// exports.handler = async function(event, context){
-//     console.log("lancement de la serverless function")
-//     return {
-//         statusCode: 200,
-//         body: JSON.stringify({message: "Je viens en paix"})
-//     } 
-// }
