@@ -12,7 +12,7 @@ const handler = async (event) => {
   // const { formData } = JSON.parse(event.body).payload
   // console.log(`Voici les donnees: ${formData}`)
     console.log(event.body);
-    const formData = JSON.parse(event.body).payload;
+    const formData = JSON.parse(event.body);
     console.log("Les donnees du formulaire de data sont : ", formData);
     const nom = formData.nom;
     const prenom = formData.prenom;
