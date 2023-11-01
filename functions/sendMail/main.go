@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
+	// "github.com/aws/aws-lambda-go/lambda"
 )
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
@@ -19,6 +19,6 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 }
 
 func main() {
-	lambda.Start(handler)
+	// lambda.Start(handler)
 	fmt.Println("En fait je veux faire du golang moi")
 }
