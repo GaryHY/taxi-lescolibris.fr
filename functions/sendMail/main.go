@@ -10,6 +10,7 @@ import (
 )
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire.
 	auth := smtp.PlainAuth(
 		"gary.testmail.123@gmail.com",
 		"gary.testmail.123@gmail.com",
