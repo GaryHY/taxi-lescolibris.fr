@@ -20,8 +20,9 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	msg := "Un test de message a faire pour le contenu du mail."
 
+	// 587
 	err := smtp.SendMail(
-		"smtp.gmail.com:587",
+		"smtp.gmail.com:465",
 		auth,
 		"moi",
 		[]string{"mon mail"},
