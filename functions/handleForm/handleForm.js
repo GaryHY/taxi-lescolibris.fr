@@ -24,12 +24,16 @@ const handler = async (event) => {
     const transporter = nodemailer.createTransport({
         service: "gmail",
         port: 465,
+        secure: false,
         auth: {
             // TODO: protect that with env variable.
             user: "gary.testmail.123@gmail.com",
             pass : "nsmx rfvd tofc qrtf",
         }
     });
+
+    let a = 5;
+    console.log("La valeur de a est : ", a); 
 
     const mailOptions = {
         from: nom + " " + prenom + " : @" + email,
