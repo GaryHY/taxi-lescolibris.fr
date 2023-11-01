@@ -2,12 +2,22 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"net/smtp"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
+
+type Content struct {
+	Nom     string
+	Prenom  string
+	Email   string
+	Message string
+}
+
+// TODO: Parse the content of the html.
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire.
@@ -17,6 +27,13 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		"nsmxrfvdtofcqrtf",
 		"smtp.gmail.com",
 	)
+
+	var content Content
+	error := json.Unmarshal([]byte(request.Body), &content)
+	fmt.Println("Voyons le contenu de content", content)
+	if error != nil {
+		fmt.Println("On dirait bien que j'ai une erreur")
+	}
 
 	fmt.Println("Juste la requete : ", request)
 	fmt.Println("Contenu du body de la requete :", request.Body)
