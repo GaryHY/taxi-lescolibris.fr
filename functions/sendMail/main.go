@@ -9,10 +9,7 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
-// "nsmx rfvd tofc qrtf",
-
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	fmt.Println("This message will show up in the CLI console.")
 	auth := smtp.PlainAuth(
 		"gary.testmail.123@gmail.com",
 		"gary.testmail.123@gmail.com",
@@ -20,9 +17,10 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		"smtp.gmail.com",
 	)
 
+	fmt.Println("Je veux voir le contenu de la requete :", request)
+
 	msg := "Subject: On teste la fonction d'envoi de mail\nThis is the body of the mail."
 
-	// 587
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
 		auth,
@@ -39,7 +37,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	return &events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		Headers:         map[string]string{"Content-Type": "text/plain"},
-		Body:            "Je teste de bosser avec golang parce que c'est ce que je prefere",
+		Body:            "Operation finie",
 		IsBase64Encoded: false,
 	}, nil
 }
