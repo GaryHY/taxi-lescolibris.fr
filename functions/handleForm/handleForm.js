@@ -31,8 +31,6 @@ const handler = async (event) => {
         }
     });
 
-    console.log("Le transporteur :", transporter);
-
     const mailOptions = {
         from: nom + " " + prenom + " : @" + email,
         to: "gary.testmail.123@gmail.com",
