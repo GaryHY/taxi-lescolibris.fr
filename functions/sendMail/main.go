@@ -32,6 +32,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	if err != nil {
+		fmt.Println("Le message d'erreur est le suivant :")
 		fmt.Println(err)
 	}
 
