@@ -17,7 +17,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		"smtp.gmail.com",
 	)
 
-	fmt.Println("Je veux voir le contenu du body de la requete :", request.Body)
+	fmt.Println("Contenu du body de la requete :", request.Body)
 
 	msg := "Subject: On teste la fonction d'envoi de mail\nThis is the body of the mail."
 
