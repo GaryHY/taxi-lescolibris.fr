@@ -37,27 +37,25 @@ const handler = async (event) => {
         subject: "test du service de mail en fait.",
         text: message,
     };
-    return {
-        statusCode: 300,
-        body: JSON.stringify({message: "Ici on vient de finir tout le bordel et je veux voir si je recois le status code different de 502."})
+
+    function handleSend(error, info){
+        console.log("Je vais send le mail maintenant");
+        if(error){
+            console.log("Something went wrong :", error);
+            return {
+                statusCode: 500,
+                body: JSON.stringify({message: "Le mail n'a pas pu etre envoye avec succes"})
+            }
+        } else {
+            console.log("Email sent :" + info.response);
+            return {
+                statusCode: 200,
+                body: JSON.stringify({message: "Le mail est envoye avec succes"})
+            }
+        }
     }
 
-    // transporter.sendMail(mailOptions, (error, info) => {
-    //     console.log("Je vais send le mail maintenant");
-    //     if(error){
-    //         console.log("Something went wrong :", error);
-    //         return {
-    //             statusCode: 500,
-    //             body: JSON.stringify({message: "Le mail n'a pas pu etre envoye avec succes"})
-    //         }
-    //     } else {
-    //         console.log("Email sent :" + info.response);
-    //         return {
-    //             statusCode: 200,
-    //             body: JSON.stringify({message: "Le mail est envoye avec succes"})
-    //         }
-    //     }
-    // });
+    transporter.sendMail(mailOptions, (error, info) => handleSend(error, info));
 
 
 
