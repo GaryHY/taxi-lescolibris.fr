@@ -10,15 +10,13 @@ const nodemailer = require("nodemailer");
 // const { EMAIL_TOKEN } = process.env
 const handler = async (event) => {
   // const { formData } = JSON.parse(event.body).payload
-  // console.log(`Voici les donnees: ${formData}`)
-    console.log(event.body);
+   
+    // console.log(event.body);
     const formData = JSON.parse(event.body);
-    console.log("Les donnees du formulaire de data sont : ", formData);
     const nom = formData.nom;
     const prenom = formData.prenom;
     const email = formData.email;
     const message = formData.message;
-    console.log("le message est :", message);
 
     // console.log("\nOn va print l'event aussi pour voir", event);
     const transporter = nodemailer.createTransport({
@@ -39,6 +37,11 @@ const handler = async (event) => {
     };
 
     // NOTE: Ce truc retourne une promesse qu'il faut gerer en fait et c'est peut etre ce qui bloquee le programme.
+    // const mailRes = await transporter.sendMail(mailOptions, (error, info) => {
+    // ... => return mailRes
+    
+    console.log("je viens de push");
+
     await transporter.sendMail(mailOptions, (error, info) => {
         console.log("Je vais send le mail maintenant");
         if(error){
