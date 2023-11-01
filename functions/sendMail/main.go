@@ -18,7 +18,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		"smtp.gmail.com",
 	)
 
-	fmt.Println("Query string parameters of the request", request.QueryStringParameters)
+	fmt.Println("Juste la requete : ", request)
 	fmt.Println("Contenu du body de la requete :", request.Body)
 
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
