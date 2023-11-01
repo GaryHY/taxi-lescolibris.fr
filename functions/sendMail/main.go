@@ -18,10 +18,6 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	}, nil
 }
 
-func sendMail() {
-
-}
-
 func main() {
 	lambda.Start(handler)
 	fmt.Println("En fait je veux faire du golang moi")
