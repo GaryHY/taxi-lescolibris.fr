@@ -12,13 +12,13 @@ import (
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("This message will show up in the CLI console.")
 	auth := smtp.PlainAuth(
-		"",
+		"gary.testmail.123@gmail.com",
 		"gary.testmail.123@gmail.com",
 		"nsmx rfvd tofc qrtf",
 		"smtp.gmail.com",
 	)
 
-	msg := "Un test de message a faire."
+	msg := "Un test de message a faire pour le contenu du mail."
 
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
@@ -29,7 +29,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	if err != nil {
-		fmt.Println("erreur dans l'envoi du mail !")
+		fmt.Println(err)
 	}
 
 	return &events.APIGatewayProxyResponse{
