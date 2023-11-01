@@ -31,6 +31,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	var content Content
 	error := json.Unmarshal([]byte(request.Body), &content)
 	fmt.Println("Voyons le contenu de content", content)
+	fmt.Println("Je veux voir si j'ai bien le nom : ", content.Nom)
 	if error != nil {
 		fmt.Println("On dirait bien que j'ai une erreur")
 	}
