@@ -3,7 +3,6 @@ package main
 import (
 	"context"
 	"fmt"
-
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
@@ -14,11 +13,16 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	return &events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		Headers:         map[string]string{"Content-Type": "text/plain"},
-		Body:            "Hello, world!",
+		Body:            "Je teste de bosser avec golang parce que c'est ce que je prefere",
 		IsBase64Encoded: false,
 	}, nil
 }
 
+func sendMail() {
+
+}
+
 func main() {
 	lambda.Start(handler)
+	fmt.Println("En fait je veux faire du golang moi")
 }
