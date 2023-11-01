@@ -38,7 +38,7 @@ const handler = async (event) => {
         text: message,
     };
     return {
-        statusCode: 200,
+        statusCode: 300,
         body: JSON.stringify({message: "Ici on vient de finir tout le bordel et je veux voir si je recois le status code different de 502."})
     }
 
