@@ -3,13 +3,34 @@ package main
 import (
 	"context"
 	"fmt"
+	"net/smtp"
+
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("This message will show up in the CLI console.")
-	fmt.Println("I want to make that thing work.")
+	auth := smtp.PlainAuth(
+		"",
+		"gary.testmail.123@gmail.com",
+		"nsmx rfvd tofc qrtf",
+		"smtp.gmail.com",
+	)
+
+	msg := "Un test de message a faire."
+
+	err := smtp.SendMail(
+		"smtp.gmail.com:587",
+		auth,
+		"moi",
+		[]string{"mon mail"},
+		[]byte(msg),
+	)
+
+	if err != nil {
+		fmt.Println("erreur dans l'envoi du mail !")
+	}
 
 	return &events.APIGatewayProxyResponse{
 		StatusCode:      200,
@@ -20,6 +41,5 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 }
 
 func main() {
-	fmt.Println("En fait je veux faire du golang moi")
 	lambda.Start(handler)
 }

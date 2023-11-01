@@ -119,7 +119,7 @@ form.addEventListener("submit", async (e) => {
         resetInputs();
         // TODO: Trouver l'url pour envoyer le contenu du form ma serverless function.
         console.log("je tente de send tout le bordel a mon bail")
-        const urljs = "https://transports-lescolibris.netlify.app/.netlify/functions/handleForm";
+        // const urljs = "https://transports-lescolibris.netlify.app/.netlify/functions/handleForm";
         const urlgolang = "https://transports-lescolibris.netlify.app/.netlify/functions/sendMail";
         // await fetch(urljs, {
         await fetch(urlgolang, {
