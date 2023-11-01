@@ -39,6 +39,7 @@ const handler = async (event) => {
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
+        console.log("Je vais send le mail maintenant");
         if(error){
             console.log("Something went wrong :", error);
             return {
