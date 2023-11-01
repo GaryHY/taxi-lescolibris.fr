@@ -127,7 +127,7 @@ form.addEventListener("submit", async (e) => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: formData,
         })
     }
 })
