@@ -9,12 +9,14 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
+// "nsmx rfvd tofc qrtf",
+
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	fmt.Println("This message will show up in the CLI console.")
 	auth := smtp.PlainAuth(
 		"gary.testmail.123@gmail.com",
 		"gary.testmail.123@gmail.com",
-		"nsmx rfvd tofc qrtf",
+		"nsmxrfvdtofcqrtf",
 		"smtp.gmail.com",
 	)
 
