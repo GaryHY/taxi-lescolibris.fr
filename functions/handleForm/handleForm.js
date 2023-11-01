@@ -37,7 +37,7 @@ const handler = async (event) => {
     };
 
     // NOTE: Ce truc retourne une promesse qu'il faut gerer en fait et c'est peut etre ce qui bloquee le programme.
-    console.log("push");
+    console.log("pushhhhhhhhhh");
 
     // const mailRes = await transporter.sendMail(mailOptions, (error, info) => {
     try {
