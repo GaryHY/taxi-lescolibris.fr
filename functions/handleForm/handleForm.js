@@ -38,7 +38,8 @@ const handler = async (event) => {
         text: message,
     };
 
-    function handleSend(error, info){
+    // NOTE: Ce truc retourne une promesse qu'il faut gerer en fait et c'est peut etre ce qui bloquee le programme.
+    await transporter.sendMail(mailOptions, (error, info) => {
         console.log("Je vais send le mail maintenant");
         if(error){
             console.log("Something went wrong :", error);
@@ -53,9 +54,7 @@ const handler = async (event) => {
                 body: JSON.stringify({message: "Le mail est envoye avec succes"})
             }
         }
-    }
-
-    transporter.sendMail(mailOptions, (error, info) => handleSend(error, info));
+    });
 
 
 
@@ -75,5 +74,6 @@ const handler = async (event) => {
   // }
   
 }
+
 
 module.exports = { handler }
