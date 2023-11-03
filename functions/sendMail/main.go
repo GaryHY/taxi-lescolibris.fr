@@ -18,14 +18,15 @@ type Content struct {
 }
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
-
+// "nsmxrfvdtofcqrtf",
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	auth := smtp.PlainAuth(
 		"",
 		"gary.testmail.123@gmail.com",
-		"nsmxrfvdtofcqrtf",
+		"wterjrwnxtfdqmcw",
 		"smtp.gmail.com",
 	)
+
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
 	fmt.Println("New Updpate: changed the subject function and remove the body inside of it.")
 
