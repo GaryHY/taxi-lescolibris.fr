@@ -17,10 +17,10 @@ type Content struct {
 	Message string
 }
 
-// TODO: Parse the content of the html.
+// TODO: Parse the content of the html from the file so that I get something more personalized.
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire.
+	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
 	auth := smtp.PlainAuth(
 		"gary.testmail.123@gmail.com",
 		"gary.testmail.123@gmail.com",
@@ -28,6 +28,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		"smtp.gmail.com",
 	)
 
+	// NOTE: Did I do that myself or was that from the template, I do not think so !
 	var content Content
 	error := json.Unmarshal([]byte(request.Body), &content)
 	fmt.Println("Voyons le contenu de content", content)
@@ -36,13 +37,13 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		fmt.Println("On dirait bien que j'ai une erreur")
 	}
 
-	fmt.Println("Juste la requete : ", request)
-	fmt.Println("Contenu du body de la requete :", request.Body)
-
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
 	subject := "On teste la fonction d'envoi de mail\nThis is the body of the mail."
-	body := "<h1>Je veux envoyer un nouveau mail en fait les gars</h1>"
-	msg := "Subject: " + subject + headers + "\n\n" + body
+	// body := "<h1>Je veux envoyer un nouveau mail en fait les gars</h1>"
+	// msg := "Subject: " + subject + headers + "\n\n" + body
+
+	text_content := "<h1>Je veux envoyer un nouveau mail en fait les gars" + content.Nom + " </h1>"
+	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
@@ -53,8 +54,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	if err != nil {
-		fmt.Println("Le message d'erreur est le suivant :")
-		fmt.Println(err)
+		fmt.Println("Le message d'erreur est le suivant : \n", err)
 	}
 
 	return &events.APIGatewayProxyResponse{
@@ -66,5 +66,6 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 }
 
 func main() {
+	fmt.Println("Je veux devenir un monstre de code parce que c'est ce qui me ramener de l'argent.")
 	lambda.Start(handler)
 }
