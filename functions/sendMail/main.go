@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"context"
 	"encoding/json"
 	"fmt"
 	"net/smtp"
+	"text/template"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -19,6 +21,16 @@ type Content struct {
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	// GET the html template for the response
+	// TODO: Changer l'argument de ParseFiles en une env variable
+	var body bytes.Buffer
+	t, template_err := template.ParseFiles("./template.html")
+	if template_err != nil {
+		fmt.Println("The template could not be parsed, nessage error : ", template_err)
+	}
+
+	t.Execute(&body, struct{ Name string }{Name: "Gary"})
+
 	auth := smtp.PlainAuth(
 		"",
 		"gary.testmail.123@gmail.com",
@@ -27,15 +39,12 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
-	fmt.Println("New Updpate: changed the style of the html to see if it works.")
+	fmt.Println("New Updpate: started to work with the html template.")
 
-	// NOTE: Did I do that myself or was that from the template, I do not think so !
 	var content Content
 	error := json.Unmarshal([]byte(request.Body), &content)
-	fmt.Println("Voyons le contenu de content", content)
-	fmt.Println("Je veux voir si j'ai bien le nom : ", content.Nom)
 	if error != nil {
-		fmt.Println("On dirait bien que j'ai une erreur")
+		fmt.Println("erreur when unmarshalling the json content from the request.")
 	}
 
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
@@ -46,8 +55,10 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	// msg := "Subject: " + subject + headers + "\n\n" + body
 
 	subject := "On teste la fonction d'envoi de mail.\n"
-	text_content := `<h1 style="color: red;">Je veux envoyer un nouveau mail en fait les gars " + content.Nom + " </h1>`
-	msg := "Subject: " + subject + headers + "\n\n" + text_content
+	// Old before the use of templates.
+	// text_content := `<h1>Je veux envoyer un nouveau mail en fait les gars " + content.Nom + " </h1>`
+	// msg := "Subject: " + subject + headers + "\n\n" + text_content
+	msg := "Subject: " + subject + headers + "\n\n" + body.String()
 
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
