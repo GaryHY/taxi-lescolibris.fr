@@ -21,19 +21,6 @@ type Content struct {
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	// TODO: Put that part in a function for readability.
-
-	// GET the html template for the response
-	// TODO: Changer l'argument de ParseFiles en une env variable
-	// var body bytes.Buffer
-	// t, template_err := template.ParseFiles("./template.html")
-	// TODO:  How to access the fucking file.
-	// t, template_err := template.ParseFiles("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail/template.html")
-	// if template_err != nil {
-	// 	fmt.Println("The template could not be parsed, nessage error : ", template_err)
-	// }
-	// t.Execute(&body, struct{ Name string }{Name: "Gary"})
-
 	auth := smtp.PlainAuth(
 		"",
 		"gary.testmail.123@gmail.com",
@@ -53,8 +40,6 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
 
 	// NOTE: Ce que j'avais avant
-	// subject := "On teste la fonction d'envoi de mail\nThis is the body of the mail."
-	// body := "<h1>Je veux envoyer un nouveau mail en fait les gars</h1>"
 	// msg := "Subject: " + subject + headers + "\n\n" + body
 
 	subject := "On teste la fonction d'envoi de mail.\n"
@@ -62,14 +47,11 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
-	// Use after the use of template
-	// msg := "Subject: " + subject + headers + "\n\n" + body.String()
-
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
 		auth,
 		// "gary.testmail.123@gmail.com",
-		content.Nom+" "+content.Prenom+" : @"+content.Email,
+		content.Email,
 		[]string{"gary.testmail.123@gmail.com"},
 		[]byte(msg),
 	)
