@@ -21,7 +21,7 @@ type Content struct {
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	auth := smtp.PlainAuth(
-		"L'auteur du site de transportLesColibris",
+		"",
 		"gary.testmail.123@gmail.com",
 		"nsmxrfvdtofcqrtf",
 		"smtp.gmail.com",
