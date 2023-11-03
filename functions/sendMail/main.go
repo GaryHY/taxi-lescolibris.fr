@@ -18,7 +18,6 @@ type Content struct {
 }
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
-// "nsmxrfvdtofcqrtf",
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	auth := smtp.PlainAuth(
 		"",
@@ -46,7 +45,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	// body := "<h1>Je veux envoyer un nouveau mail en fait les gars</h1>"
 	// msg := "Subject: " + subject + headers + "\n\n" + body
 
-	subject := "On teste la fonction d'envoi de mail."
+	subject := "On teste la fonction d'envoi de mail.\n"
 	text_content := "<h1>Je veux envoyer un nouveau mail en fait les gars " + content.Nom + " </h1>"
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
