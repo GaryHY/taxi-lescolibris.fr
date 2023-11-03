@@ -37,7 +37,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
 
-	subject := "Nouveau message de la part de - " + content.Nom + " " + content.Prenom + " : " + content.Email
+	subject := "Nouveau message de la part de - " + content.Nom + " " + content.Prenom + " : " + content.Email + "\n"
 	text_content := "<h1>Message :</h1>" + "<p>" + content.Message + `</p>` + "\n\n" + `<p>Bonne reception, </p>` + `<p>L'equipe de blablabla</p>`
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
