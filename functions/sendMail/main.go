@@ -6,6 +6,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/smtp"
+	"os"
 	"text/template"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -21,12 +22,21 @@ type Content struct {
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	files, file_err := os.ReadDir("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail")
+	if file_err != nil {
+		fmt.Println("Erreur dnas la recherche des files")
+	}
+
+	for _, file := range files {
+		fmt.Println("file :", file.Name(), file.IsDir())
+	}
 	// TODO: Put that part in a function for readability.
 
 	// GET the html template for the response
 	// TODO: Changer l'argument de ParseFiles en une env variable
 	var body bytes.Buffer
 	// t, template_err := template.ParseFiles("./template.html")
+	// TODO:  How to access the fucking file.
 	t, template_err := template.ParseFiles("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail/template.html")
 
 	if template_err != nil {
