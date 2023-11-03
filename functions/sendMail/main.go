@@ -20,7 +20,7 @@ type Content struct {
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
-	fmt.Println("New Updpate: removed the template and made a weak ass string for the content of the mail.")
+	fmt.Println("New Update: fixed the content of the mail and try something different in the from field of the mail.")
 
 	auth := smtp.PlainAuth(
 		"",
@@ -37,8 +37,8 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
 
-	subject := "On teste la fonction d'envoi de mail.\n"
-	text_content := `<h1>Nouveau message de la part de :` + content.Nom + " " + content.Prenom + " : @" + content.Email + "</h1>" + "<p>" + content.Message + `</p>\n\n\` + `<p>Bonne reception, </p>` + `<p>L'equipe de blablabla</p>`
+	subject := "Nouveau message a destination de la societe Transport Les Colibris."
+	text_content := `<h1>Nouveau message de la part de - ` + content.Nom + " " + content.Prenom + " : " + content.Email + "</h1>" + "<p>" + content.Message + `</p>` + "\n\n" + `<p>Bonne reception, </p>` + `<p>L'equipe de blablabla</p>`
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
 	err := smtp.SendMail(
@@ -51,7 +51,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	if err != nil {
-		fmt.Println("Le message d'erreur est le suivant : \n", err)
+		fmt.Println("Error when sending the email : ", err)
 	}
 
 	return &events.APIGatewayProxyResponse{
