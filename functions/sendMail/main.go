@@ -27,7 +27,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		"smtp.gmail.com",
 	)
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
-	fmt.Println("New Updpate: changed the app password")
+	fmt.Println("New Updpate: changed the subject function and remove the body inside of it.")
 
 	// NOTE: Did I do that myself or was that from the template, I do not think so !
 	var content Content
@@ -39,10 +39,13 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	}
 
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
-	subject := "On teste la fonction d'envoi de mail\nThis is the body of the mail."
+
+	// NOTE: Ce que j'avais avant
+	// subject := "On teste la fonction d'envoi de mail\nThis is the body of the mail."
 	// body := "<h1>Je veux envoyer un nouveau mail en fait les gars</h1>"
 	// msg := "Subject: " + subject + headers + "\n\n" + body
 
+	subject := "On teste la fonction d'envoi de mail."
 	text_content := "<h1>Je veux envoyer un nouveau mail en fait les gars " + content.Nom + " </h1>"
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
