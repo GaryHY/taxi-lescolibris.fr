@@ -24,7 +24,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	auth := smtp.PlainAuth(
 		"gary.testmail.123@gmail.com",
 		"gary.testmail.123@gmail.com",
-		"nsmxrfvdtofcqrtf",
+		"nsmx rfvd tofc qrtf",
 		"smtp.gmail.com",
 	)
 
@@ -42,7 +42,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	// body := "<h1>Je veux envoyer un nouveau mail en fait les gars</h1>"
 	// msg := "Subject: " + subject + headers + "\n\n" + body
 
-	text_content := "<h1>Je veux envoyer un nouveau mail en fait les gars" + content.Nom + " </h1>"
+	text_content := "<h1>Je veux envoyer un nouveau mail en fait les gars " + content.Nom + " </h1>"
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
 	err := smtp.SendMail(
