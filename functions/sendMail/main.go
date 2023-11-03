@@ -6,7 +6,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/smtp"
-	"os"
 	"text/template"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -22,28 +21,18 @@ type Content struct {
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	files, file_err := os.ReadDir("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail")
-	if file_err != nil {
-		fmt.Println("Erreur dnas la recherche des files")
-	}
-
-	for _, file := range files {
-		fmt.Println("file :", file.Name(), file.IsDir())
-	}
 	// TODO: Put that part in a function for readability.
 
 	// GET the html template for the response
 	// TODO: Changer l'argument de ParseFiles en une env variable
-	var body bytes.Buffer
+	// var body bytes.Buffer
 	// t, template_err := template.ParseFiles("./template.html")
 	// TODO:  How to access the fucking file.
-	t, template_err := template.ParseFiles("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail/template.html")
-
-	if template_err != nil {
-		fmt.Println("The template could not be parsed, nessage error : ", template_err)
-	}
-
-	t.Execute(&body, struct{ Name string }{Name: "Gary"})
+	// t, template_err := template.ParseFiles("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail/template.html")
+	// if template_err != nil {
+	// 	fmt.Println("The template could not be parsed, nessage error : ", template_err)
+	// }
+	// t.Execute(&body, struct{ Name string }{Name: "Gary"})
 
 	auth := smtp.PlainAuth(
 		"",
@@ -69,15 +58,18 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	// msg := "Subject: " + subject + headers + "\n\n" + body
 
 	subject := "On teste la fonction d'envoi de mail.\n"
-	// Old before the use of templates.
-	// text_content := `<h1>Je veux envoyer un nouveau mail en fait les gars " + content.Nom + " </h1>`
-	// msg := "Subject: " + subject + headers + "\n\n" + text_content
-	msg := "Subject: " + subject + headers + "\n\n" + body.String()
+	text_content := `<h1>Nouveau message de la part de :` + content.Nom + " " + content.Prenom + " : @" + content.Email + "</h1>" + "<p>" + content.Message + `</p>\n\n\` + `<p>Bonne reception, </p>` + `<p>L'equipe de blablabla</p>`
+
+	msg := "Subject: " + subject + headers + "\n\n" + text_content
+
+	// Use after the use of template
+	// msg := "Subject: " + subject + headers + "\n\n" + body.String()
 
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
 		auth,
-		"gary.testmail.123@gmail.com",
+		// "gary.testmail.123@gmail.com",
+		content.Nom+" "+content.Prenom+" : @"+content.Email,
 		[]string{"gary.testmail.123@gmail.com"},
 		[]byte(msg),
 	)
