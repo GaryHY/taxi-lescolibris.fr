@@ -21,10 +21,14 @@ type Content struct {
 
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
+	// TODO: Put that part in a function for readability.
+
 	// GET the html template for the response
 	// TODO: Changer l'argument de ParseFiles en une env variable
 	var body bytes.Buffer
-	t, template_err := template.ParseFiles("./template.html")
+	// t, template_err := template.ParseFiles("./template.html")
+	t, template_err := template.ParseFiles("https://transports-lescolibris.netlify.app/.netlify/functions/sendMail/template.html")
+
 	if template_err != nil {
 		fmt.Println("The template could not be parsed, nessage error : ", template_err)
 	}
@@ -39,7 +43,7 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	)
 
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
-	fmt.Println("New Updpate: started to work with the html template.")
+	fmt.Println("New Updpate: change the template path to see if I can get the file.")
 
 	var content Content
 	error := json.Unmarshal([]byte(request.Body), &content)
