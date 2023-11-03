@@ -20,14 +20,14 @@ type Content struct {
 // TODO: Parse the content of the html from the file so that I get something more personalized.
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
-	fmt.Println("Changed the app password !")
 	auth := smtp.PlainAuth(
+		"L'auteur du site de transportLesColibris",
 		"gary.testmail.123@gmail.com",
-		"gary.testmail.123@gmail.com",
-		"nsmx rfvd tofc qrtf",
+		"nsmxrfvdtofcqrtf",
 		"smtp.gmail.com",
 	)
+	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
+	fmt.Println("New Updpate: changed the app password")
 
 	// NOTE: Did I do that myself or was that from the template, I do not think so !
 	var content Content
