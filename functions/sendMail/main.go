@@ -19,7 +19,7 @@ type Content struct {
 }
 
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	fmt.Println("New Update: fixed the content of the mail and try something different in the from field of the mail.")
+	fmt.Println("New Update: added the env variables and remove some text that are useful.")
 
 	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
 	auth := smtp.PlainAuth(
@@ -29,6 +29,8 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 		// "wterjrwnxtfdqmcw",
 		"smtp.gmail.com",
 	)
+
+	fmt.Println("Je vais envoyer un mail avec la nouvelle variable d'env")
 
 	var content Content
 	error := json.Unmarshal([]byte(request.Body), &content)
