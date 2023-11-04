@@ -125,6 +125,6 @@ form.addEventListener("submit", async (e) => {
         setTimeout(() => {
             modal.close()
             modal.classList.remove("fade");
-        }, 1500);
+        }, 2500);
     }
 })
