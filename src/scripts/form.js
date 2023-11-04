@@ -1,8 +1,3 @@
-// TODO: Try using react email for the formatting, the project is new 
-// and it helps to show improvement.
-// video to illustrate : https://www.youtube.com/watch?v=Xa1WaSPu5K8
-
-// TODO: changer la postion du message d'erreur du textarea
 const inputs = document.querySelectorAll(".field");
 const form = document.getElementById("form")
 const nom = document.getElementById("nom");
@@ -11,7 +6,7 @@ const prenom = document.getElementById("prenom");
 const message = document.getElementById("message");
 
 const checkInput = (inputElement) => {
-    const label = inputElement.parentElement;
+    const label = inputElement.parentElement; 
     const labelline = label.querySelector(".labelline");
     if (inputElement.value !== "") { labelline.setAttribute("data-focus", "true")
     } else {
@@ -105,11 +100,9 @@ const resetInputs = () => {
     message.value = "";
 }
 
-
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     if (validateInputs()){
-        console.log("On vient de valider l'input mon pote.")
         let formData = {
             nom: nom.value,
             prenom: prenom.value,
@@ -117,12 +110,8 @@ form.addEventListener("submit", async (e) => {
             message: message.value,
         };
         resetInputs();
-        // TODO: Trouver l'url pour envoyer le contenu du form ma serverless function.
-        console.log("je tente de send tout le bordel a mon bail")
-        // const urljs = "https://transports-lescolibris.netlify.app/.netlify/functions/handleForm";
-        const urlgolang = "https://transports-lescolibris.netlify.app/.netlify/functions/sendMail";
-        // await fetch(urljs, {
-        await fetch(urlgolang, {
+        const url = "https://transports-lescolibris.netlify.app/.netlify/functions/sendMail";
+        await fetch(url, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

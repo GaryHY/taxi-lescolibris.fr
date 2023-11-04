@@ -14,7 +14,7 @@
 .telephone,
 .mail {
     padding: 4em 4em;
-    text-align:center;
+    text-align: center;
 }
 
 .telephone__title,
@@ -55,7 +55,7 @@
     display: flex;
     gap: 2em;
     flex-direction: column;
-    align-items:center;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -78,7 +78,7 @@
 }
 
 .telephone__number {
-    text-align:center;
+    text-align: center;
     font-size: clamp(1em, 6vw, 2.5em);
     font-weight: 700;
     margin: 0;
@@ -93,8 +93,6 @@ form {
     grid-template-columns: repeat(2,1fr);
     grid-gap: 2.5em 0.5em;
 }
-
-
 
 input, textarea {
     width: 100%;
@@ -200,6 +198,34 @@ textarea:focus ~ .labelline {
     font-size: 0.8em;
     color: var(--clr-button);
     top: 0.8em; transition: font-size 100ms ease-in, top 100ms ease-in;
+}
+
+/* style the modal when form submitted */
+.modal_contact {
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    outline: none;
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+    background-color: limegreen;
+    font-size: 1.5rem;
+}
+
+.modal_container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.modal_contact::backdrop {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.tick {
+    font-size: 3rem;
 }
 
 @media(max-width: 41em) {

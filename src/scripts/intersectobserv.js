@@ -1,4 +1,5 @@
 const herotitle = document.querySelector(".hero__title");
+const navbar = document.getElementById("nav");
 const cards = document.querySelectorAll(".card__element");
 const title = document.getElementById("qualityheader");
 const cardtitle = document.querySelector(".card__title");
@@ -92,7 +93,8 @@ const displayFooter = (e) => {
 }
 
 
-// TODO: try to finish the function
+// TODO: try to finish the function to make this function more generalized, it doesnt make sense to have so much
+// repetition.
 // const displaySection = (e, header, section) => {
 //     if(!e[0].isIntersecting) {
 //         header.classList.add("animateHeading");
@@ -104,7 +106,8 @@ const displayFooter = (e) => {
 // }
 
 const moveBtnIntersectObs = new IntersectionObserver(moveBtn);
-moveBtnIntersectObs.observe(herotitle);
+// moveBtnIntersectObs.observe(herotitle);
+moveBtnIntersectObs.observe(navbar);
 
 const postalCardIntersectObs = new IntersectionObserver(displayPostalCard);
 postalCardIntersectObs.observe(cardtitle);
