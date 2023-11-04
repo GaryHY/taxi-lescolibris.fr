@@ -212,6 +212,7 @@ textarea:focus ~ .labelline {
     color: white;
     background-color: limegreen;
     font-size: 1.5rem;
+    animation: fade 1s;
 }
 
 .modal_container {
