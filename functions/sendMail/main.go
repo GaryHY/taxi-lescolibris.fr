@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/smtp"
+	"os"
 
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
@@ -17,15 +18,15 @@ type Content struct {
 	Message string
 }
 
-// TODO: Parse the content of the html from the file so that I get something more personalized.
 func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse, error) {
-	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
 	fmt.Println("New Update: fixed the content of the mail and try something different in the from field of the mail.")
 
+	// TODO: Utiliser des variables d'environnement pour tout ce qui est necessaire (mail, mot de passe de l'app etc).
 	auth := smtp.PlainAuth(
 		"",
 		"gary.testmail.123@gmail.com",
-		"wterjrwnxtfdqmcw",
+		os.Getenv("GMAIL_PASSWORD"),
+		// "wterjrwnxtfdqmcw",
 		"smtp.gmail.com",
 	)
 
