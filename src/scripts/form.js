@@ -118,5 +118,9 @@ form.addEventListener("submit", async (e) => {
           },
           body: JSON.stringify(formData),
         })
+
+        const modal = document.querySelector(".modal_contact");
+        modal.showModal();
+        setTimeout(() => modal.close(), 2000);
     }
 })
