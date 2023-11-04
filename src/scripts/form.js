@@ -120,7 +120,11 @@ form.addEventListener("submit", async (e) => {
         })
 
         const modal = document.querySelector(".modal_contact");
+        modal.classList.add("fade");
         modal.showModal();
-        setTimeout(() => modal.close(), 2000);
+        setTimeout(() => {
+            modal.close()
+            modal.classList.remove("fade");
+        }, 1500);
     }
 })
