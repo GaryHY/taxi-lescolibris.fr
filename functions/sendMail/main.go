@@ -35,14 +35,14 @@ func handler(ctx context.Context, request events.APIGatewayProxyRequest) (*event
 	headers := "MIME-version: 1.0;\nContent-Type: text/html; charset=\"UTF-8\";"
 
 	subject := "Nouveau message de la part de - " + content.Nom + " " + content.Prenom + " : " + content.Email + "\n"
-	text_content := "<h1>Message :</h1>" + "<p>" + content.Message + `</p>` + "\n\n" + `<p>Bonne reception, </p>` + `<p>L'equipe de blablabla</p>`
+	text_content := "<h1>Message :</h1>" + "<p>" + content.Message + `</p>` + "\n\n" + `<p>Bonne reception, </p>` + "\n\n" + `<p>Transport Les Colibris</p>`
 	msg := "Subject: " + subject + headers + "\n\n" + text_content
 
 	err := smtp.SendMail(
 		"smtp.gmail.com:587",
 		auth,
 		content.Email,
-		[]string{"gary.testmail.123@gmail.com"},
+		[]string{"francius94200@gmail.com"},
 		[]byte(msg),
 	)
 
