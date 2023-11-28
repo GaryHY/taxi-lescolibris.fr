@@ -96,7 +96,7 @@
 
 .gwada::after {
     content: '';
-    background-repeat:no-repeat;
+    background-repeat: no-repeat;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -111,7 +111,7 @@
 @media(max-width: 41em){
     .mobile-nav-toggle {
         display: block;
-        position:absolute;
+        position: absolute;
         right: 2rem;
         top: 50%;
         transform: translateY(-50%);
@@ -181,7 +181,7 @@
         inset: 0 0 0 30%;
         padding: 8em 2em;
         align-items: start;
-        background:hsl(0 0% 0% / 0.75);
+        background: hsl(0 0% 0% / 0.75);
         z-index: 1000; 
         transform: translateX(100%);
         transition: transform 350ms ease-out;

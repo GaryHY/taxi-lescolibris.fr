@@ -34,31 +34,9 @@ const cardservices = [
 ]
 ---
 <section class="service" id="services" aria-labelledby="servicesheader">
-    <div class="outer_grid">
         <div class="services">
             {cardservices.map((cardservice, index) => (
                 <CardService title={cardservice.title}, content={cardservice.content}, index={index} />
             ))}
         </div>
-        <div class="service__description">
-            <h2 class="service__title heading" data-color="black" id="servicesheader">service</h2>
-            <div class="service__body">
-                <h3 class="subheading tarif__heading">Tarification</h3>
-                <p>En Guadeloupe, les tarifs des taxis sont fixés par la préfecture. Ils sont composés de trois éléments :</p>
-                <ul role="list" class="tarif_list">
-                    <li><span class="tarif_list_title">La prise en charge : </span> Elle est fixee a 4.18€</li>
-                    <li><span class="tarif_list_title">Le prix au kilometre</span> Il est fixe a 1.21€</li>
-                    <li><span class="tarif_list_title">Le prix horraire</span> Il est fixe a 36.96€</li>
-                </ul>
-                <p>A ces tarifs de base peuvent s'ajouter des majorations et des supplements tels que :</p>
-                <ul role="list" class="tarif_list">
-                    <li><span class="tarif_list_title">La majoration pour les courses de nuit :</span> Elle est de 20% entre 22h et 6h.</li>
-                    <li><span class="tarif_list_title">La majoration pour les courses le dimanche et les jours feries :</span> Elle est de 10%</li>
-                    <li><span class="tarif_list_title" id="contactintersect">Le supplement pour les bagages :</span> Il est de 1€ par bagage.</li>
-                    <li><span class="tarif_list_title">Le supplément pour les animaux :</span> Il est de 2€ par animal.</li>
-                </ul>
-                <p>Les tarifs des taxis sont également affichés été dans les vehicules.</p>
-            </div>
-        </div>
-    </div>
 </section>

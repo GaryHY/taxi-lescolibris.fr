@@ -1,24 +1,10 @@
-.service {
-    padding-block: 0;
-    background-color: white;
+section#services{
+    padding: 0;
 }
 
-.services,
-.service__description {
+.services {
     opacity: 0;
-}
-
-.service__description {
-    padding-block: 4em;
-    padding-left: 2em;
-    padding-right: calc(100% - var(--content-width) + 3.5vw);
-    padding-right: calc((100% - var(--content-width)) / 0.9);
-}
-
-.outer_grid {
-    /* Ici je mets la taille de la partie service qui determine de toutes les autres parties. */
-    --service-width: 44%;
-    display: grid;
+    padding: 0;
 }
 
 .services {
@@ -27,39 +13,24 @@
     grid-template-columns: repeat(2,1fr);
 }
 
-.service__title{
-    margin-inline: center;
-}
-
-.service__body {
-    padding-top: 3em;
-    padding-bottom: 1em;
-}
+/* .service__body { */
+/*     padding-top: 3em; */
+/*     padding-bottom: 1em; */
+/* } */
 
 p {
     margin-top : 3em;
 }
 
-.tarif__heading {
-    position: relative;
-    text-decoration: underline 4px black;
-}
-
-.tarif_list {
-    margin-top: 1em;
-}
-
-.tarif_list > * {
-    list-style-type:disc;
-    margin-left: 2em;
-}
-
-.tarif_list_title {
-    font-weight: 600;
-}
-
 @media(min-width: 600px){
-    .outer_grid{
-        grid-template-columns: calc(100% - var(--service-width)) var(--service-width);
+    /* .outer_grid{ */
+    /*     grid-template-columns: calc(100% - var(--service-width)) var(--service-width); */
+    /* } */
+    .services {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(4,1fr);
+    }
+    .cardservice {
+        border: 1px solid white;
     }
 }

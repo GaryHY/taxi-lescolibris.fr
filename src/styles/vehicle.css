@@ -31,7 +31,7 @@
 .slider {
     --slider-index: 0;
     --gap: 5em;
-    display:grid;
+    display: grid;
     grid-auto-flow: column;
     grid-auto-columns: calc(100% / var(--col-count));
     transform: translateX(calc(var(--slider-index) * -100%));
@@ -39,7 +39,7 @@
 }
 
 .handle {
-    border:none;
+    border: none;
     background: none;
     z-index: 1000;
     width: clamp(2em, 4vw, 4em);
@@ -50,6 +50,7 @@
 .right_handle {
     transform: translateY(-50%) rotateZ(180deg);
     right: clamp(0.5em, 2vw, 3em);
+    z-index: 90000000;
 }
 
 .left_handle {
@@ -58,7 +59,7 @@
 }
 
 .arrow:is(:hover, :focus) {
-    cursor:pointer;
+    cursor: pointer;
     transition: transform 200ms ease-in;
     transform: scale(1.2);
 }
@@ -66,7 +67,7 @@
 
 .progress_bar {
     margin-top: 3em; 
-    display:flex;
+    display: flex;
     gap: 2em;
     gap: clamp(1em, 4vw, 2em);
     justify-content: center;

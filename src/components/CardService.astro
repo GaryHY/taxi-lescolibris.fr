@@ -1,11 +1,11 @@
 ---
 import "../styles/cardservice.css";
 import plane from "../images/service/plane.svg";
-import boat from "../images/service/boat.svg";
 import health from "../images/service/health.svg";
-import handi from "../images/service/handi.svg";
 import car from "../images/service/car.svg";
 import map from "../images/service/map.svg";
+import boat from "../images/service/boat.svg";
+import handi from "../images/service/handi.svg";
 
 export interface CardService {
     title: string;
@@ -18,7 +18,11 @@ export interface CardService {
 const images = [plane, health, car, map];
 
 // Je ne comprends pas trop les nombres mais ok
-const numbers = new Set([1,2,5]);
+// NOTE: old value
+// const numbers = new Set([1,2,5]);
+// const numbers = new Set([1,3,5]);
+const numbers = new Set([1,2,4]);
+console.log(numbers);
 
 const { title, content, index} = Astro.props as CardService;
 ---
@@ -27,5 +31,4 @@ const { title, content, index} = Astro.props as CardService;
     <img class="cardservice__image" src={images[index].src} alt="transport maritime">
     <h3 class="cardservice__title subheading" id="cardservicetitle">{title}</h3>
     <p class="cardservice__body">{content}</p>
-    <!-- <p class="cardservice__body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel orci rutrum, ullamcorper sem quis, consequat libero. </p> -->
 </div>
