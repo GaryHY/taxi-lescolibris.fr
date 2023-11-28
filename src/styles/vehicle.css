@@ -84,6 +84,12 @@
     background-color: var(--clr-button);
 }
 
+.photo {
+    margin-inline: auto;
+    width: 100%;
+    aspect-ratio: 1;
+}
+
 .photo:is(:hover, :focus){
     cursor: pointer;
 }
