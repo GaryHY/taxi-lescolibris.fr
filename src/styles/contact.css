@@ -144,6 +144,7 @@ label {
     left: 0.5em;
     top: 50%;
     transform: translateY(-50%);
+    opacity: 0.6;
 }
 
 .error {
@@ -179,6 +180,7 @@ input[name]:focus ~ .labelline,
     color: var(--clr-button);
     top: 0.8em;
     transition: font-size 100ms ease-in, top 100ms ease-in;
+    opacity: 1;
 }
 
 /* textarea */
