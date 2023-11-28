@@ -1,6 +1,6 @@
 ---
 import "../styles/vehicle.css";
-import Case from "../components/Case.astro";
+// import Case from "../components/Case.astro";
 
 import {Image} from 'astro:assets';
 import car1 from "../images/vehicle/car1.png";
@@ -33,6 +33,17 @@ const elements = [
         position: "left",
     },
 ];
+
+// the template to display the cards :
+// <div class="container">
+//     <div class="vehicle__description">
+//         {elements.map(element => (
+//             <div data-position={element.position}>
+//                 <Case title={element.title}, content={element.content} />
+//             </div>
+//         ))}
+//     </div>
+// </div>
 ---
 <script src="../scripts/carousel.js"></script>
 
@@ -55,20 +66,11 @@ const elements = [
                     <img class="photo" src={car6.src} alt="front view" />
                 </div>
                 <button class="handle right_handle" aria-label="image suivante">
-                    <Image class="arrow" src={left_arrow} alt="left-arrow" />
+                    <Image class="arrow" src={left_arrow} alt="right-arrow" />
                 </button>
             </div>
         </div>
         <div class="progress_bar"></div>
-    </div>
-    <div class="container">
-        <div class="vehicle__description">
-            {elements.map(element => (
-                <div data-position={element.position}>
-                    <Case title={element.title}, content={element.content} />
-                </div>
-            ))}
-        </div>
     </div>
 </section>
 
