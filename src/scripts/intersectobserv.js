@@ -6,6 +6,8 @@ const cardtitle = document.querySelector(".card__title");
 const lastline = document.getElementById("lastline");
 const vehicletitle = document.querySelector(".vehicle__title");
 const rightcase = document.querySelector("[data-position=right]")
+// NOTE: new
+const services = document.querySelector(".services");
 
 const moveBtn = (e) => {
     const buttonContainer = document.querySelector(".button__container");
@@ -24,17 +26,17 @@ const moveBtn = (e) => {
     }
 }
 
-const displayPostalCard = (e) => {
-    const postalCard = document.querySelector(".about__card");
-    const aboutheader = document.getElementById("aboutheader");
-    if(!e[0].isIntersecting) {
-        aboutheader.classList.add("animateHeading");
-        postalCard.classList.add("fade");
-    } else if (e[0].isIntersecting) {
-        aboutheader.classList.remove("animateHeading");
-        postalCard.classList.remove("fade");
-    }
-}
+// const displayPostalCard = (e) => {
+//     const postalCard = document.querySelector(".about__card");
+//     const aboutheader = document.getElementById("aboutheader");
+//     if(!e[0].isIntersecting) {
+//         aboutheader.classList.add("animateHeading");
+//         postalCard.classList.add("fade");
+//     } else if (e[0].isIntersecting) {
+//         aboutheader.classList.remove("animateHeading");
+//         postalCard.classList.remove("fade");
+//     }
+// }
 
 const displayVehicle = (e) => {
     const vehicleheader = document.getElementById("vehicleheader");
@@ -54,17 +56,17 @@ const displayVehicle2 = (e) => {
 }
 
 const displayService = (e) => {
-    const serviceheader = document.getElementById("servicesheader");
+    // const serviceheader = document.getElementById("servicesheader");
     const leftservice = document.querySelector(".services");
-    const rightservice = document.querySelector(".service__description");
+    // const rightservice = document.querySelector(".service__description");
     if(!e[0].isIntersecting) {
-        serviceheader.classList.add("animateHeading");
+        // serviceheader.classList.add("animateHeading");
         leftservice.classList.add("fade");
-        rightservice.classList.add("slideUp");
+        // rightservice.classList.add("slideUp");
     } else if (e[0].isIntersecting) {
-        serviceheader.classList.remove("animateHeading");
+        // serviceheader.classList.remove("animateHeading");
         leftservice.classList.remove("fade");
-        rightservice.classList.remove("slideUp");
+        // rightservice.classList.remove("slideUp");
     }
 }
 
@@ -109,20 +111,32 @@ const moveBtnIntersectObs = new IntersectionObserver(moveBtn);
 // moveBtnIntersectObs.observe(herotitle);
 moveBtnIntersectObs.observe(navbar);
 
-const postalCardIntersectObs = new IntersectionObserver(displayPostalCard);
-postalCardIntersectObs.observe(cardtitle);
+// const postalCardIntersectObs = new IntersectionObserver(displayPostalCard);
+// postalCardIntersectObs.observe(cardtitle);
 
+// NOTE: old
+// const vehicleIntersectObs = new IntersectionObserver(displayVehicle);
+// vehicleIntersectObs.observe(lastline);
+// NOTE: new
 const vehicleIntersectObs = new IntersectionObserver(displayVehicle);
-vehicleIntersectObs.observe(lastline);
+vehicleIntersectObs.observe(cardtitle);
 
-const vehicleBlocIntersectObs = new IntersectionObserver(displayVehicle2);
-vehicleBlocIntersectObs.observe(vehicletitle);
+// NOTE: old
+// const vehicleBlocIntersectObs = new IntersectionObserver(displayVehicle2);
+// vehicleBlocIntersectObs.observe(vehicletitle);
 
+// NOTE: old
+// const serviceIntersectObs = new IntersectionObserver(displayService);
+// serviceIntersectObs.observe(rightcase);
+// NOTE: new
 const serviceIntersectObs = new IntersectionObserver(displayService);
-serviceIntersectObs.observe(rightcase);
+// serviceIntersectObs.observe(vehicletitle);
+serviceIntersectObs.observe(cardtitle);
 
+// NOTE: old
+// const contactIntersectObs = new IntersectionObserver(displayContact);
+// contactIntersectObs.observe(contactintersect);
+// NOTE: new
 const contactIntersectObs = new IntersectionObserver(displayContact);
-contactIntersectObs.observe(contactintersect);
+contactIntersectObs.observe(services);
 
-// const footerIntersect = new IntersectionObserver(displayFooter);
-// footerIntersect.observe(nameintersect);
