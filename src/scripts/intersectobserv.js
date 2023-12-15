@@ -65,6 +65,7 @@ const displayService = (e) => {
         // rightservice.classList.add("slideUp");
     } else if (e[0].isIntersecting) {
         // serviceheader.classList.remove("animateHeading");
+c<5>
         leftservice.classList.remove("fade");
         // rightservice.classList.remove("slideUp");
     }
